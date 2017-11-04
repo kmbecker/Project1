@@ -19,17 +19,18 @@ var dataRef = new Firebase(url);
 
 
 
-// ---------------------- below is API Call!!!!
+// ---------------------- below is  OMD API Call!!!!
 
 
-// Initial array of movies
-      var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+
       var movie;
       var alertMovie;
       var rating;
       var release;
       var plot;
       var poster;
+      var actors = [];
+      var actorArr = [];
    
 
       // This function handles events where one button is clicked
@@ -40,9 +41,7 @@ var dataRef = new Firebase(url);
         // This line grabs the input from the textbox
         movie = $("#searchInput").val().trim();
         console.log(movie)
-        // The movie from the textbox is then added to our array
-        movies.push(movie);
-
+        
         
         displayMovieInfo();
       });
@@ -63,18 +62,14 @@ var dataRef = new Firebase(url);
                     // Creates a div to hold the movie
           // Retrieves the Rating Data
          console.log(response)
-          // Creates an element to have the rating displayed
-          // Displays the rating
-          // Retrieves the release year
-          // Creates an element to hold the release year
-          // Displays the release year
-          // Retrieves the plot
-          // Creates an element to hold the plot
-          // Appends the plot
-          // Creates an element to hold the image
-          // Appends the image
-          // Puts the entire Movie above the previous movies.
-
+         
+            // console.log(response.Actors)
+              actors = response.Actors;
+              actorArr = actors.split(",");
+              $("#actorDiv").html(actorArr)
+              
+            console.log(actorArr)
+            
               rating = response.Rated;
               release = response.Released;
               plot = response.Plot;
@@ -85,16 +80,11 @@ var dataRef = new Firebase(url);
             })
         
         };
-      // We're adding a click event listener to all elements with the class "movie"
-      // We're adding the event listener to the document itself because it will
-      // work for dynamically generated elements
-      // $(".movies").on("click") will only add listeners to elements that are on the page at that time
-      // $(document).on("click", ".movie", alertMovieName);
+      
       $(document).on("click", ".movie", function(){
         console.log(this)
         movie = $(this).data( "name" );
        
         displayMovieInfo()
       });
-      // Calling the renderButtons function to display the intial buttons
-      renderButtons()
+      
