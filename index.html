@@ -14,30 +14,53 @@
 	<div>
 		<h1 class="jumbotron header">Movie/TV Info</h1>
 	</div>
+
 	<!-- Description Section information -->
-	<div class="container-fluid description"></div>
+	<div class="container-fluid description">
+		<h3>Description</h3>
+	</div>
 
 	<!-- Search Bar for Website that will be used to trigger AJAX requests -->
 	<div class="container-fluid search-bar">
-		<input type="text" name="search" placeholder="Search Movie.."><button class="submit">Submit</button>
+		<input id="searchInput" type="text" name="search" placeholder="Search Movie/TV Show.."><button class="submit" id="submitId">Submit</button>
 	</div>
+
 	<!-- Other movie recommendations based on search, make these clickable!! -->
-	<div class="container-fluid movie-recommendations"></div>
+	<div class="container-fluid movie-recommendations">
+		<h3>Movie Recommendations</h3>
+	</div>
 	
-	<!-- Trailer Section                            Movie Poster Information -->
-	<div class="container trailer"></div>
-	<div class="container poster"></div>
+	<!-- Trailer Section                         Movie Poster Information -->
+	<div class="container trailer">
+		<h3>Trailer</h3>
+	</div>
+
+	<div class="container poster">
+		<h3>Poster</h3>
+	</div>
 
 	<!-- Actor Images Actor Images Actor Images Actor Images Actor Images -->
-	<div class="container-fluid actor-image actor"></div>
+	<div class="container-fluid actor-image actor">
+		<h3>Actors</h3>
+	</div>
+
 						<!-- More Actors Trigger -->
 	<button>More</button>
+
 	<!-- Top 3 Giphy Images -->
-	<div class="container-fluid giphy giphy-images"></div>
+	<div class="container-fluid giphy giphy-images">
+		<h3>Giphys!</h3>
+	</div>
+
 	<!-- Current suggestions of developers!! Make this updated by Firebase! -->
-	<div class="container suggestions"></div>
+	<div class="container suggestions">
+		<h3>Suggestions</h3>
+	</div>
+
 	<!-- Also allow favorites to be saved and retained on a users computer -->
-	<div class="container favorites"></div>
+	<div class="container favorites">
+		<h3>Favorites</h3>
+	</div>
 
 </body>
 </html>
