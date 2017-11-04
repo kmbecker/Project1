@@ -65,11 +65,11 @@ var dataRef = new Firebase(url);
       }
 
       // This function handles events where one button is clicked
-      $("#add-movie").on("click", function(event) {
+      $("#submitId").on("click", function(event) {
         event.preventDefault();
 
         // This line grabs the input from the textbox
-        movie = $("#movie-input").val().trim();
+        movie = $("#searchInput").val().trim();
         console.log(movie)
         // The movie from the textbox is then added to our array
         movies.push(movie);
