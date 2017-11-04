@@ -22,7 +22,7 @@
 
 	<!-- Search Bar for Website that will be used to trigger AJAX requests -->
 	<div class="container-fluid search-bar">
-		<input id="searchInput" type="text" name="search" placeholder="Search Movie/TV Show.."><button class="submit" id="submitId">Submit</button>
+		<input id="searchInput" type="text" name="search" placeholder="Search Movie/TV Show.."><button type="button" class="btn btn-info submit" id="submitId">Submit</button>
 	</div>
 
 	<!-- Other movie recommendations based on search, make these clickable!! -->
@@ -45,7 +45,7 @@
 	</div>
 
 						<!-- More Actors Trigger -->
-	<button>More</button>
+	<button type="button" class="btn btn-info btn-sm more">More</button>
 
 	<!-- Top 3 Giphy Images -->
 	<div class="container-fluid giphy giphy-images">
@@ -53,14 +53,14 @@
 	</div>
 
 	<!-- Current suggestions of developers!! Make this updated by Firebase! -->
-	<div class="container suggestions">
+	<div class="container-fluid suggestions">
 		<h3>Suggestions</h3>
 	</div>
 	<div id = "display">
 	</div>
 
 	<!-- Also allow favorites to be saved and retained on a users computer -->
-	<div class="container favorites" id="favoritesId">
+	<div class="container-fluid favorites" id="favoritesId">
 		<h3>Favorites</h3>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
