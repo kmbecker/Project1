@@ -23,7 +23,7 @@ var dataRef = new Firebase(url);
 
 
 // Initial array of movies
-      // var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+      var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
       var movie;
       var alertMovie;
       var rating;
@@ -45,7 +45,7 @@ var dataRef = new Firebase(url);
 
         // Deleting the movies prior to adding new movies
         // (this is necessary otherwise we will have repeat buttons)
-        $("#buttons-view").empty();
+        $("#display").empty();
 
         // Looping through the array of movies
         for (var i = 0; i < movies.length; i++) {
@@ -60,7 +60,7 @@ var dataRef = new Firebase(url);
           // Provided the initial button text
           a.text(movies[i]);
           // Added the button to the HTML
-          $("#buttons-view").append(a);
+          $("#display").append(a);
         }
       }
 
@@ -72,7 +72,7 @@ var dataRef = new Firebase(url);
         movie = $("#searchInput").val().trim();
         console.log(movie)
         // The movie from the textbox is then added to our array
-        movies.push(movie);
+        // movies.push(movie);
 
         // Calling renderButtons which handles the processing of our movie array
         renderButtons();
@@ -111,7 +111,7 @@ var dataRef = new Firebase(url);
               plot = response.Plot;
               poster = response.Poster;
                 var overview = JSON.stringify(response);
-          $("#display").html("<h2>Rating: " + rating +"<br>Released: " + release +"<br>Plot: "
+          $("#favoritesId").html("<h2>Rating: " + rating +"<br>Released: " + release +"<br>Plot: "
            + plot +"<br><img src='" + poster +"'>" );
             })
         
