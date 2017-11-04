@@ -30,58 +30,27 @@ var dataRef = new Firebase(url);
       var release;
       var plot;
       var poster;
-      // Generic function for capturing the movie name from the data-attribute
-      function alertMovieName() {
-
-        // YOUR CODE GOES HERE!!!
-        alertMovie = $(this).data( "name" );
-        return alertMovie;
-        console.log(alertMovie)
-
-      }
-
-      // Function for displaying movie data
-      function renderButtons() {
-
-        // Deleting the movies prior to adding new movies
-        // (this is necessary otherwise we will have repeat buttons)
-        $("#display").empty();
-
-        // Looping through the array of movies
-        for (var i = 0; i < movies.length; i++) {
-
-          // Then dynamicaly generating buttons for each movie in the array
-          // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
-          var a = $("<button>");
-          // Adding a class
-          a.addClass("movie");
-          // Added a data-attribute
-          a.attr("data-name", movies[i]);
-          // Provided the initial button text
-          a.text(movies[i]);
-          // Added the button to the HTML
-          $("#display").append(a);
-        }
-      }
+   
 
       // This function handles events where one button is clicked
       $("#submitId").on("click", function(event) {
         event.preventDefault();
+        console.log("button pressed")
 
         // This line grabs the input from the textbox
         movie = $("#searchInput").val().trim();
         console.log(movie)
         // The movie from the textbox is then added to our array
-        // movies.push(movie);
+        movies.push(movie);
 
-        // Calling renderButtons which handles the processing of our movie array
-        renderButtons();
+        
+        displayMovieInfo();
       });
 
       // Function for displaying the movie info
       function displayMovieInfo(){
         
-          // movie = $("#movie-input").val();
+          movie = $("#searchInput").val();
           
 
           // Here we construct our URL
