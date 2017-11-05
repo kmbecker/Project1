@@ -44,6 +44,7 @@ var dataRef = new Firebase(url);
         
         
         displayMovieInfo();
+        displayGifs();
       });
 
       // Function for displaying the movie info
@@ -81,10 +82,68 @@ var dataRef = new Firebase(url);
         
         };
       
-      $(document).on("click", ".movie", function(){
-        console.log(this)
-        movie = $(this).data( "name" );
+      // $(document).on("click", ".movie", function(){
+      //   console.log(this)
+      //   movie = $(this).data( "name" );
        
-        displayMovieInfo()
-      });
+      //   displayMovieInfo()
+      // });
+      // ---------------------------------Below is Giphy API------------!!!!!!
+
+
+      function displayGifs(){
+        $("#giphyDiv").empty();
+
+        var giphyName = $("#searchInput").val();
+        var gifyName = [];
+
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphyName + "&api_key=dc6zaTOxFJmzC&limit=5";
+
+          $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).done(function(response) {
+          console.log(response)
+             var results = response.data;
+                // console.log(results) 
+
+                for (var i = 0; i < results.length; i++) {
+                  var gifDiv = $("<div class='item'>");
+
+                  gifyName[i] = giphyName;
+
+                  var rating = results[i].rating;
+
+                  var p = $("<p>").text("Rating: " + rating);
+
+                  var gifyImage = $("<img>");
+                  gifyImage.attr("class","gif")
+                  gifyImage.attr("data-name", gifyName[i]);
+
+                  gifyImage.attr("src", results[i].images.fixed_height_still.url);
+                    gifDiv.prepend(gifyImage);
+            gifDiv.prepend(p);
+                  $("#giphyDiv").append(gifDiv);
+                }
+        });
+      };
+
+         // pause gif function
+          $('body').on('click', '.gif', function() {
+            var src = $(this).attr("src");
+          if($(this).hasClass('playing')){
+             //stop
+             $(this).attr('src', src.replace(/\.gif/i, "_s.gif"))
+             $(this).removeClass('playing');
+          } else {
+            //play
+            $(this).addClass('playing');
+            $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
+          }
+        });//end of pause
+
+
+
+
+
       
