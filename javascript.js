@@ -19,17 +19,18 @@ var dataRef = new Firebase(url);
 
 
 
-// ---------------------- below is API Call!!!!
+// ---------------------- below is  OMD API Call!!!!
 
 
-// Initial array of movies
-      var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+
       var movie;
       var alertMovie;
       var rating;
       var release;
       var plot;
       var poster;
+      var actors = [];
+      var actorArr = [];
    
 
       // This function handles events where one button is clicked
@@ -40,11 +41,11 @@ var dataRef = new Firebase(url);
         // This line grabs the input from the textbox
         movie = $("#searchInput").val().trim();
         console.log(movie)
-        // The movie from the textbox is then added to our array
-        movies.push(movie);
-
+        
         
         displayMovieInfo();
+        displayGifs();
+        $("#searchInput").val("Search Movie/TV Show..");
       });
 
       // Function for displaying the movie info
@@ -63,18 +64,14 @@ var dataRef = new Firebase(url);
                     // Creates a div to hold the movie
           // Retrieves the Rating Data
          console.log(response)
-          // Creates an element to have the rating displayed
-          // Displays the rating
-          // Retrieves the release year
-          // Creates an element to hold the release year
-          // Displays the release year
-          // Retrieves the plot
-          // Creates an element to hold the plot
-          // Appends the plot
-          // Creates an element to hold the image
-          // Appends the image
-          // Puts the entire Movie above the previous movies.
-
+         
+            // console.log(response.Actors)
+              actors = response.Actors;
+              actorArr = actors.split(",");
+              $("#actorDiv").html(actorArr)
+              
+            console.log(actorArr)
+            
               rating = response.Rated;
               release = response.Released;
               plot = response.Plot;
@@ -85,16 +82,69 @@ var dataRef = new Firebase(url);
             })
         
         };
-      // We're adding a click event listener to all elements with the class "movie"
-      // We're adding the event listener to the document itself because it will
-      // work for dynamically generated elements
-      // $(".movies").on("click") will only add listeners to elements that are on the page at that time
-      // $(document).on("click", ".movie", alertMovieName);
-      $(document).on("click", ".movie", function(){
-        console.log(this)
-        movie = $(this).data( "name" );
+      
+      // $(document).on("click", ".movie", function(){
+      //   console.log(this)
+      //   movie = $(this).data( "name" );
        
-        displayMovieInfo()
-      });
-      // Calling the renderButtons function to display the intial buttons
-      renderButtons()
+      //   displayMovieInfo()
+      // });
+      // ---------------------------------Below is Giphy API------------!!!!!!
+
+
+      function displayGifs(){
+        $("#giphyDiv").empty();
+
+        var giphyName = $("#searchInput").val();
+        var gifyName = [];
+
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphyName + "&api_key=dc6zaTOxFJmzC&limit=5";
+
+          $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).done(function(response) {
+          console.log(response)
+             var results = response.data;
+                // console.log(results) 
+
+                for (var i = 0; i < results.length; i++) {
+                  var gifDiv = $("<div class='item'>");
+
+                  gifyName[i] = giphyName;
+
+                  var rating = results[i].rating;
+
+                  var p = $("<p>").text("Rating: " + rating);
+
+                  var gifyImage = $("<img>");
+                  gifyImage.attr("class","gif")
+                  gifyImage.attr("data-name", gifyName[i]);
+
+                  gifyImage.attr("src", results[i].images.fixed_height_still.url);
+                    gifDiv.prepend(gifyImage);
+            gifDiv.prepend(p);
+                  $("#giphyDiv").append(gifDiv);
+                }
+        });
+      };
+
+         // pause gif function
+          $('body').on('click', '.gif', function() {
+            var src = $(this).attr("src");
+          if($(this).hasClass('playing')){
+             //stop
+             $(this).attr('src', src.replace(/\.gif/i, "_s.gif"))
+             $(this).removeClass('playing');
+          } else {
+            //play
+            $(this).addClass('playing');
+            $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
+          }
+        });//end of pause
+
+
+
+
+
+      
