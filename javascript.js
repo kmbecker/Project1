@@ -45,6 +45,7 @@ var dataRef = new Firebase(url);
         
         displayMovieInfo();
         displayGifs();
+        $("#searchInput").val("Search Movie/TV Show..");
       });
 
       // Function for displaying the movie info
