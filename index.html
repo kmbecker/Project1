@@ -12,11 +12,11 @@
 <body>
 	<!-- Insert Header/Jumbotron -->
 	<div>
-		<h1 class="jumbotron header" id="headerId">Movie/TV Info</h1>
+		<h1 class="jumbotron header">Movie/TV Info</h1>
 	</div>
 
 	<!-- Description Section information -->
-	<div class="container-fluid description" id="descriptionId">
+	<div class="container-fluid description">
 		<h3>Description</h3>
 	</div>
 
@@ -26,44 +26,47 @@
 	</div>
 
 	<!-- Other movie recommendations based on search, make these clickable!! -->
-	<div class="container-fluid movie-recommendations" id="recommendationsId">
+	<div class="container-fluid movie-recommendations">
 		<h3>Movie Recommendations</h3>
 	</div>
 	
 	<!-- Trailer Section                         Movie Poster Information -->
-	<div class="container trailer" id="trailerId">
+	<div class="container trailer">
 		<h3>Trailer</h3>
+
 	</div>
 
-	<div class="container poster" id="posterId">
+	<div class="container poster">
 		<h3>Poster</h3>
+		
 	</div>
 
 	<!-- Actor Images Actor Images Actor Images Actor Images Actor Images -->
-	<div class="container-fluid actor-image actor" id="actorId">
+	<div class="container-fluid actor-image actor">
 		<h3>Actors</h3>
 		<div id = "actorDiv"></div>
 	</div>
 
 						<!-- More Actors Trigger -->
-	<button type="button" class="btn btn-info btn-sm more" id="moreId">More</button>
+	<!-- <button type="button" class="btn btn-info btn-sm more">More</button> // just thinking we dont need this we only get so many actors from the omdb pull-->
 
 	<!-- Top 3 Giphy Images -->
-	<div class="container-fluid giphy giphy-images" id="giphyId">
+	<div class="container-fluid giphy giphy-images">
 		<h3>Giphys!</h3>
 		<div id = "giphyDiv"></div>
 	</div>
 
 	<!-- Current suggestions of developers!! Make this updated by Firebase! -->
-	<div class="container-fluid suggestions" id="suggestionsId">
+	<div class="container-fluid suggestions">
 		<h3>Suggestions</h3>
 	</div>
 	<div id = "display">
 	</div>
 
 	<!-- Also allow favorites to be saved and retained on a users computer -->
-	<div class="container-fluid favorites" id="favoritesId">
+	<div class="container-fluid favorites">
 		<h3>Favorites</h3>
+		<div id = "favoritesDiv"></div>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src=javascript.js></script>

@@ -15,7 +15,6 @@ var dataRef = new Firebase(url);
 // create global variables
 
 
-//  database.ref to set initial movie favorites
 
 
 
@@ -24,14 +23,26 @@ var dataRef = new Firebase(url);
 
 
       var movie;
+      
       var alertMovie;
       var rating;
       var release;
       var plot;
       var poster;
+      var favs = [];
       var actors = [];
       var actorArr = [];
+      var website;
    
+   $(document).ready(function() {
+
+    //initial favorites firebase load
+    //  dataref to set initial movie favorites
+
+
+
+
+           
 
       // This function handles events where one button is clicked
       $("#submitId").on("click", function(event) {
@@ -40,16 +51,24 @@ var dataRef = new Firebase(url);
 
         // This line grabs the input from the textbox
         movie = $("#searchInput").val().trim();
-        console.log(movie)
+        favs.push(movie);
+        console.log(favs);
+        console.log(movie);
         
         
         displayMovieInfo();
         displayGifs();
-        $("#searchInput").val("Search Movie/TV Show..");
-      });
+        $("#searchInput").val("");
+      });// ends submit
+
+           //---------------------------------Below is add to favorites button ------------
+
+
+
 
       // Function for displaying the movie info
       function displayMovieInfo(){
+        
         
           movie = $("#searchInput").val();
           
@@ -76,12 +95,23 @@ var dataRef = new Firebase(url);
               release = response.Released;
               plot = response.Plot;
               poster = response.Poster;
+              website = response.Website;
                 var overview = JSON.stringify(response);
-          $("#favoritesId").html("<h2>Rating: " + rating +"<br>Released: " + release +"<br>Plot: "
-           + plot +"<br><img src='" + poster +"'>" );
-            })
+          $(".trailer").html("<a href = "+ website + " target = '_blank'>" + website +
+           "</a>");
+           $(".trailer").append("<br><h2>Rating: " + rating +"<br>Released: " + release +"<br>Plot: "
+           + plot +
+          "<button type='button' class='btn btn-info btn-sm' id = 'favbtn'>Add to Favorites</button>");
+
+            
+          $(".poster").html("<img src= " + poster +">");
+         
+
+
+            });// ends response function
+
         
-        };
+        };// ends display movie function
       
       // $(document).on("click", ".movie", function(){
       //   console.log(this)
@@ -89,6 +119,10 @@ var dataRef = new Firebase(url);
        
       //   displayMovieInfo()
       // });
+
+
+ 
+
       // ---------------------------------Below is Giphy API------------!!!!!!
 
 
@@ -98,7 +132,7 @@ var dataRef = new Firebase(url);
         var giphyName = $("#searchInput").val();
         var gifyName = [];
 
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphyName + "&api_key=dc6zaTOxFJmzC&limit=5";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphyName + "&api_key=dc6zaTOxFJmzC&limit=3";
 
           $.ajax({
             url: queryURL,
@@ -120,15 +154,49 @@ var dataRef = new Firebase(url);
                   var gifyImage = $("<img>");
                   gifyImage.attr("class","gif")
                   gifyImage.attr("data-name", gifyName[i]);
-
                   gifyImage.attr("src", results[i].images.fixed_height_still.url);
-                    gifDiv.prepend(gifyImage);
-            gifDiv.prepend(p);
+                  gifDiv.prepend(gifyImage);
+                  gifDiv.prepend(p);
+
                   $("#giphyDiv").append(gifDiv);
                 }
         });
-      };
+      };//end of displayGifs
 
+
+      //render buttons function
+      function renderButtons() {
+
+        // Deleting the movies prior to adding new movies
+        // (this is necessary otherwise we will have repeat buttons)
+          $("#favoritesDiv").empty();
+           dataRef.on("child_added", function(childSnapShot){
+          $("#favoritesDiv").append("<button class = 'favMovie'>" + childSnapShot.val().favoritesFIRE + "</button>")
+               
+           });//end of child added
+          };//end of render
+
+     // Render buttons inital 
+      renderButtons();
+
+      //Favorit button clicked
+
+        $('body').on('click', '#favbtn', function() {
+          event.preventDefault();
+                  keyHolder = dataRef.push({
+                  favoritesFIRE: movie,
+           })//end of push
+          
+        renderButtons();
+        
+        });//end of favbtn
+          
+
+        
+        // dataRef.on("child_added", function(childSnapShot){
+        //   $("#favoritesDiv").append("<button class = 'favMovie'>" + childSnapShot.val().favoritesFIRE + "</button>")
+            
+        // });
          // pause gif function
           $('body').on('click', '.gif', function() {
             var src = $(this).attr("src");
@@ -146,5 +214,4 @@ var dataRef = new Firebase(url);
 
 
 
-
-      
+});//end of document ready     
