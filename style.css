@@ -17,9 +17,10 @@ input[type=text] {
     transition: width 0.4s ease-in-out;
 }
 
-input[type=text]:focus {
+/*sorry but this line annoyed the piss out of me becuase i have to click button twice*/
+/*input[type=text]:focus {
     width: 85%;
-}
+}*/
 
 .jumbotron {
 	text-align: center;

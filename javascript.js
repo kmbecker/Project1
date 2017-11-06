@@ -46,6 +46,7 @@ var dataRef = new Firebase(url);
 
       // This function handles events where one button is clicked
       $("#submitId").on("click", function(event) {
+
         event.preventDefault();
         console.log("button pressed")
         giphyName = $("#searchInput").val();
@@ -61,6 +62,7 @@ var dataRef = new Firebase(url);
         displayGifs();
         $("#searchInput").val("");
       });// ends submit
+
 
            //---------------------------------Below is add to favorites button ------------
 
