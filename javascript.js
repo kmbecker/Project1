@@ -23,7 +23,7 @@ var dataRef = new Firebase(url);
 
 
       var movie;
-      
+      var giphyName;
       var alertMovie;
       var rating;
       var release;
@@ -46,8 +46,10 @@ var dataRef = new Firebase(url);
 
       // This function handles events where one button is clicked
       $("#submitId").on("click", function(event) {
+
         event.preventDefault();
         console.log("button pressed")
+        giphyName = $("#searchInput").val();
 
         // This line grabs the input from the textbox
         movie = $("#searchInput").val().trim();
@@ -55,11 +57,12 @@ var dataRef = new Firebase(url);
         console.log(favs);
         console.log(movie);
         
-        
+        $("#favbtnDiv").css("display" , "block")
         displayMovieInfo();
         displayGifs();
         $("#searchInput").val("");
       });// ends submit
+
 
            //---------------------------------Below is add to favorites button ------------
 
@@ -70,9 +73,6 @@ var dataRef = new Firebase(url);
       function displayMovieInfo(){
         
         
-          movie = $("#searchInput").val();
-          
-
           // Here we construct our URL
           var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=40e9cece";
             console.log(queryURL);
@@ -83,11 +83,17 @@ var dataRef = new Firebase(url);
                     // Creates a div to hold the movie
           // Retrieves the Rating Data
          console.log(response)
+              $("#actorDiv").empty()
          
-            // console.log(response.Actors)
+              var col = "col-xs-3 col-sm-3 col-md-3 col-lg-3"
               actors = response.Actors;
               actorArr = actors.split(",");
-              $("#actorDiv").html(actorArr)
+              for (var i = actorArr.length - 1; i >= 0; i--) {
+
+              $("#actorDiv").append("<div class = 'container-fluid actimg " + col +"' id = "  +
+               "'" + actorArr[i] + "'>" + actorArr[i]+ "</div>");
+              };
+              
               
             console.log(actorArr)
             
@@ -100,9 +106,8 @@ var dataRef = new Firebase(url);
           $(".trailer").html("<a href = "+ website + " target = '_blank'>" + website +
            "</a>");
            $(".trailer").append("<br><h2>Rating: " + rating +"<br>Released: " + release +"<br>Plot: "
-           + plot +
-          "<button type='button' class='btn btn-info btn-sm' id = 'favbtn'>Add to Favorites</button>");
-
+           + plot);
+          $("#favbtnDiv").html("<button type='button' class='btn btn-info btn-sm' id = 'favbtn'>Add to Favorites</button>")
             
           $(".poster").html("<img src= " + poster +">");
          
@@ -129,7 +134,7 @@ var dataRef = new Firebase(url);
       function displayGifs(){
         $("#giphyDiv").empty();
 
-        var giphyName = $("#searchInput").val();
+        
         var gifyName = [];
 
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphyName + "&api_key=dc6zaTOxFJmzC&limit=3";
@@ -171,13 +176,23 @@ var dataRef = new Firebase(url);
         // (this is necessary otherwise we will have repeat buttons)
           $("#favoritesDiv").empty();
            dataRef.on("child_added", function(childSnapShot){
-          $("#favoritesDiv").append("<button class = 'favMovie'>" + childSnapShot.val().favoritesFIRE + "</button>")
+          $("#favoritesDiv").append("<button class = 'favMovie btn btn-info'>" + childSnapShot.val().favoritesFIRE + "</button>")
                
            });//end of child added
           };//end of render
 
      // Render buttons inital 
       renderButtons();
+      // favorit movies on click
+      $('body').on('click', '.favMovie', function() {
+          movie = $(this).text();
+          console.log(this)
+        console.log(movie)
+        giphyName = movie;
+          displayGifs();
+          displayMovieInfo();
+          $("#favbtnDiv").css("display" , "none")
+        });//end of favorite click function
 
       //Favorit button clicked
 
