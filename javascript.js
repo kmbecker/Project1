@@ -83,11 +83,17 @@ var dataRef = new Firebase(url);
                     // Creates a div to hold the movie
           // Retrieves the Rating Data
          console.log(response)
+              $("#actorDiv").empty()
          
-            // console.log(response.Actors)
+              var col = "col-xs-3 col-sm-3 col-md-3 col-lg-3"
               actors = response.Actors;
               actorArr = actors.split(",");
-              $("#actorDiv").html(actorArr)
+              for (var i = actorArr.length - 1; i >= 0; i--) {
+
+              $("#actorDiv").append("<div class = 'container-fluid actimg " + col +"' id = "  +
+               "'" + actorArr[i] + "'>" + actorArr[i]+ "</div>");
+              };
+              
               
             console.log(actorArr)
             

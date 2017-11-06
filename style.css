@@ -1,5 +1,10 @@
 body {
-	background: black;
+	background: url('curtain.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        color: white;
 }
 
 h3 {
@@ -30,4 +35,11 @@ input[type=text] {
 }
 .favMovie{
 	margin: 5px;
+}
+#actorDiv{
+	display: inline-block;
+	width: 100%;
+}
+.search-bar{
+	color:black;
 }
