@@ -159,7 +159,7 @@ var dataRef = new Firebase(url);
                 // console.log(results) 
 
                 for (var i = 0; i < results.length; i++) {
-                  var gifDiv = $("<div class='item'>");
+                  var gifDiv = $("<div class='item col-sm-4'>");
 
                   gifyName[i] = giphyName;
 
