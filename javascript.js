@@ -1,7 +1,7 @@
 // // Initialize Firebase
 var url ="https://movieproject-fc07e.firebaseio.com";
 var dataRef = new Firebase(url);
-
+var getKey;
   // Initialize Firebase
   // var config = {
   //   apiKey: "AIzaSyDHolWI_ZAvFdCLyYUFDiSNnsWLiS485OQ",
@@ -159,7 +159,7 @@ var dataRef = new Firebase(url);
                 // console.log(results) 
 
                 for (var i = 0; i < results.length; i++) {
-                  var gifDiv = $("<div class='item col-sm-4'>");
+                  var gifDiv = $("<div class='item col-sm-2'>");
 
                   gifyName[i] = giphyName;
 
@@ -187,7 +187,12 @@ var dataRef = new Firebase(url);
         // (this is necessary otherwise we will have repeat buttons)
           $("#favoritesDiv").empty();
            dataRef.on("child_added", function(childSnapShot){
-          $("#favoritesDiv").append("<button class = 'favMovie btn btn-info'>" + childSnapShot.val().favoritesFIRE + "</button>")
+            var fav = childSnapShot.val().favoritesFIRE;
+            // console.log(fav);
+            console.log(childSnapShot.key())
+          $("#favoritesDiv").append("<div class = 'clearDiv' id = '" + childSnapShot.key() +"'><button data-name = '" +
+           fav + "' class = 'favMovie btn btn-info'>" +
+           fav + "</button><br><span data-name = '" + fav + "' class = 'clear'>X</span></div")
                
            });//end of child added
           };//end of render
@@ -216,13 +221,20 @@ var dataRef = new Firebase(url);
         renderButtons();
         
         });//end of favbtn
-          
-
-        
-        // dataRef.on("child_added", function(childSnapShot){
-        //   $("#favoritesDiv").append("<button class = 'favMovie'>" + childSnapShot.val().favoritesFIRE + "</button>")
-            
-        // });
+        //clear favorite
+        $('body').on('click', '.clear', function() {
+          // event.preventDefault();
+          //         keyHolder = dataRef.push({
+          //         favoritesFIRE: movie,
+          var test = $(this).attr('data-name');
+          // console.log(test)
+          $(this).closest ('button').remove();
+          getKey = $(this).parent().attr('id');
+          console.log(getKey);
+          dataRef.child(getKey).remove();
+          renderButtons();
+           })
+         
          // pause gif function
           $('body').on('click', '.gif', function() {
             var src = $(this).attr("src");
@@ -237,7 +249,10 @@ var dataRef = new Firebase(url);
           }
         });//end of pause
 
-
+          function clearFav() {
+            var favName = $(this).attr("data-name");
+            console.log(favName)
+          }
 
 
 });//end of document ready     

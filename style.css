@@ -22,7 +22,10 @@ input[type=text] {
     transition: width 0.4s ease-in-out;
 }
 
-
+.item{
+	width: 30%;
+	margin: 15px;
+}
 
 .jumbotron {
 	text-align: center;
@@ -33,9 +36,9 @@ input[type=text] {
 .favMovie{
 	margin: 5px;
 }
-#actorDiv{
+
+.clearDiv{
 	display: inline-block;
-	width: 100%;
 }
 .search-bar{
 	color:black;
@@ -43,4 +46,8 @@ input[type=text] {
 
 #suggestionsForm{
 	display: none;
+}
+#actorDiv{
+	display: inline-block;
+	width: 100%;
 }
