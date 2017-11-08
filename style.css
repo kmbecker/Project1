@@ -43,3 +43,7 @@ input[type=text] {
 .search-bar{
 	color:black;
 }
+
+#suggestionsForm{
+	display: none;
+}

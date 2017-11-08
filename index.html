@@ -21,9 +21,9 @@
 	</div>
 
 	<!-- Search Bar for Website that will be used to trigger AJAX requests -->
-	<div class="container-fluid search-bar">
-		<input id="searchInput" type="text" name="search" placeholder="Search Movie/TV Show.."><button type="button" class="btn btn-info submit" id="submitId">Submit</button>
-	</div>
+	<form id="searchForm" class="container-fluid search-bar">
+		<input id="searchInput" type="text" name="search" placeholder="Search Movie/TV Show.."><button type="submit" class="btn btn-info submit" id="submitId">Submit</button>
+	</form> 
 
 	<!-- Other movie recommendations based on search, make these clickable!! -->
 	<div class="container-fluid movie-recommendations">
@@ -58,9 +58,11 @@
 	<!-- Current suggestions of developers!! Make this updated by Firebase! -->
 	<div class="container-fluid suggestions">
 		<h3>Suggestions</h3>
+		<form id="suggestionsForm">
+			<input id="suggestionsInput" type="text" name="search" placeholder="Suggestions.."><button type="submit" class="btn btn-info submit" id="suggestionsButton">Add</button>
+		</form>
 	</div>
-	<div id = "display">
-	</div>
+
 
 	<!-- Also allow favorites to be saved and retained on a users computer -->
 	<div class="container-fluid favorites">
