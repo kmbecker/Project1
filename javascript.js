@@ -33,7 +33,7 @@ var dataRef = new Firebase(url);
       var actors = [];
       var actorArr = [];
       var website;
-   
+
    $(document).ready(function() {
 
     //initial favorites firebase load
@@ -42,10 +42,21 @@ var dataRef = new Firebase(url);
 
 
 
-           
 
       // This function handles events where one button is clicked
       $("#submitId").on("click", function(event) {
+
+        function search_function(searchInput){
+          // Do your search action here
+          alert(searchInput);
+        };
+        $(function(){
+          $("#searchForm").on("submit", function(e){
+            search_function($("#searchInput").val());
+            e.preventDefault(); // Prevents submitting in most browsers
+            return false; // Prevents submitting in some other browsers
+          });
+        });
 
         event.preventDefault();
         console.log("button pressed")
