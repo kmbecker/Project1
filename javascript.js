@@ -95,8 +95,9 @@ var getKey;
               poster = response.Poster;
               website = response.Website;
                 var overview = JSON.stringify(response);
-          $(".trailer").html("<a href = "+ website + " target = '_blank'>" + website +
-           "</a>");
+                // Provide website of movie or TV show
+          // $(".trailer").html("<a href = "+ website + " target = '_blank'>" + website +
+           // "</a>");
            $(".trailer").append("<br><h2>Rating: " + rating +"<br>Released: " + release +"<br>Plot: "
            + plot);
           $("#favbtnDiv").html("<button type='button' class='btn btn-info btn-sm' id = 'favbtn'>Add to Favorites</button>")
