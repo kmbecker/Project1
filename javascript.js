@@ -103,16 +103,17 @@ var getKey2;
            $(".trailer").html("<h2>Rating: " + rating +"<br>Released: " + release +"<br>Plot: "
            + plot);
 
-            // $(“#htmlTitle”).html(“<h2>” + movieTitle + “</h2>“);
           $("#favbtnDiv").html("<button type='button' class='btn btn-info btn-sm' id = 'favbtn'>Add to Favorites</button>")
           $("#sugDiv").html("<button type='button' class='btn btn-info btn-sm' " +
              "id = 'sugbtn'>Add to Suggestions</button>");
             
           $(".poster").html("<img src= " + poster +">");
 
+          $("#htmlTitle").html("<h2>" + movieTitle + "</h2>");
+
           // Pull trailer playlist from YouTube
 
-          $("#trailerDiv").html("<iframe width='560' height='315' src='https://youtube.com/embed?listType=search&list=" +
+          $("#playDiv").html("<iframe width='560' height='315' src='https://youtube.com/embed?listType=search&list=" +
            movie + "+trailer' frameborder='0' allowfullscreen></iframe>");
 
          
