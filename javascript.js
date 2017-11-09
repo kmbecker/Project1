@@ -171,8 +171,8 @@ var getKey2;
         dataRef2.on("child_added", function(childSnapShot){
             var sug = childSnapShot.val().favoritesFIRE;
        $("#suglocDiv").append("<div class = 'clearDiv' id = '" + childSnapShot.key() +"'><button data-name = '" +
-           sug + "' class = 'favMovie btn btn-info'>" +
-           sug + "</button><br><div data-name = '" + sug + "' class = 'clear'>X</div</div")
+           sug + "' class = 'sugMovie btn btn-info'>" +
+           sug + "</button><br><div data-name = '" + sug + "' class = 'sugclear'>X</div</div")
                
            });//end of child added
           };//end of render
@@ -201,6 +201,17 @@ var getKey2;
 
 // ------------------------------------------------ click functions --------------------!!!!
 
+      // suggestion movies click
+
+        $('body').on('click', '.sugMovie', function() {
+          movie = $(this).text();
+          console.log(this)
+        console.log(movie)
+        giphyName = movie;
+          displayGifs();
+          displayMovieInfo();
+        });//end of sug click function
+
 
       // favorit movies on click
       $('body').on('click', '.favMovie', function() {
@@ -213,26 +224,42 @@ var getKey2;
           $("#favbtnDiv").css("display" , "none")
         });//end of favorite click function
 
-      //Favorit button clicked
+
+//    --------------------suggestion button _-----
+       $('body').on('click', '#sugbtn', function() {
+                  keyHolder2 = dataRef2.push({
+                  favoritesFIRE: movie,
+        });//end of push
+
+     //Favorit button clicked
+
+                })//end of push
 
         $('body').on('click', '#favbtn', function() {
           event.preventDefault();
                   keyHolder = dataRef.push({
                   favoritesFIRE: movie,
                   });//end of push
-                  keyHolder2 = dataRef2.push({
-                  favoritesFIRE: movie,
-                  })//end of push
+                  
 
         renderSugButtons()
         renderButtons();
         
         });//end of favbtn
+         //clear favorite
+        $('body').on('click', '.sugclear', function() {
+          
+          var test = $(this).attr('data-name');
+          // console.log(test)
+          $(this).closest ('button').remove();
+          getKey2 = $(this).parent().attr('id');
+          dataRef2.child(getKey2).remove();
+          renderSugButtons();
+           })
+
         //clear favorite
         $('body').on('click', '.clear', function() {
-          // event.preventDefault();
-          //         keyHolder = dataRef.push({
-          //         favoritesFIRE: movie,
+         
           var test = $(this).attr('data-name');
           // console.log(test)
           $(this).closest ('button').remove();
