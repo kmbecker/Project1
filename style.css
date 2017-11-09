@@ -63,4 +63,6 @@ input[type=text] {
 #wrapper{
 	/*float:right;*/
 	/*display: inline-block;*/
+	background-color: rgba(0,0,0,0.6);
+	border-radius: 10px;
 }
