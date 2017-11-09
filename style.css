@@ -7,8 +7,20 @@ body {
         color: white;
 }
 
+a:link {
+	text-decoration: none;
+}
+
+a:hover {
+	color: #e5f97c;
+} 
+
+a:active {
+    color: blue;
+}
+
 h3 {
-	color: white;
+	color: #e5f97c;
 }
 
 input[type=text] {
