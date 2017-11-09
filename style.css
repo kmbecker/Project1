@@ -8,7 +8,15 @@ body {
 }
 
 h3 {
-	color: white;
+	max-width: 100%;
+/*	background-color: gray;*/
+	color: #e5f97a;
+	color: yellow;
+}
+
+iframe {
+	margin-left: 15px;
+	margin-top: 55px;
 }
 
 input[type=text] {

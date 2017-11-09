@@ -17,42 +17,40 @@
 
 	<!-- Description Section information -->
 	<div class="container-fluid description">
-		<h3>Description</h3>
+		<h2>Description of website and what it does!!!</h2>
 	</div>
 
 	<!-- Search Bar for Website that will be used to trigger AJAX requests -->
 	<form id="searchForm" class="container-fluid search-bar">
 		<input id="searchInput" type="text" name="search" placeholder="Search Movie/TV Show.."><button type="submit" class="btn btn-info submit" id="submitId">Submit</button>
 	</form> 
+	</br>
 
-	<!-- Other movie recommendations based on search, make these clickable!! -->
-	<div class="container-fluid movie-recommendations">
-		<h3>Movie Recommendations</h3>
-	</div>
+	<!-- Movie Trailer -->
+	<div class="col-md-7"  id="trailerDiv"></div>
 
-	<div id="trailerDiv"></div>
+	<!-- Poster -->
+	<div class="col-md-4 container poster">	
+
 	
-	<!-- Trailer Section                         Movie Poster Information -->
-	<div class="container trailer">
-		<h3>Trailer</h3>
-	</div>
+	<!-- Rating information -->
+	<div class="container trailer"></div>
+
+	<!-- Favorite Button -->
 	<div class ="container" id = "favbtnDiv"></div>
-	<div class="container poster">
-		<h3>Poster</h3>
-		
+	
+	
 	</div>
 
-	<!-- Actor Images Actor Images Actor Images Actor Images Actor Images -->
-	<div class="container-fluid actor-image actor">
+
+	<!-- Actor Information -->
+	<div class="col-md-12 container actor-image actor">
 		<h3>Actors</h3>
 		<div id = "actorDiv"></div>
 	</div>
 
-						<!-- More Actors Trigger -->
-	<!-- <button type="button" class="btn btn-info btn-sm more">More</button> // just thinking we dont need this we only get so many actors from the omdb pull-->
-
 	<!-- Top 3 Giphy Images -->
-	<div class="container-fluid giphy giphy-images">
+	<div class="col-md-12 giphy giphy-images">
 		<h3>Giphys!</h3>
 		<div id = "giphyDiv"></div>
 	</div>
@@ -64,6 +62,12 @@
 			<input id="suggestionsInput" type="text" name="search" placeholder="Suggestions.."><button type="submit" class="btn btn-info submit" id="suggestionsButton">Add</button>
 		</form>
 	</div>
+
+
+	<!-- Other movie recommendations based on search, make these clickable!! -->
+	<div class="container-fluid movie-recommendations">
+		<h3>Movie Recommendations</h3>
+	</div>	
 
 
 	<!-- Also allow favorites to be saved and retained on a users computer -->
