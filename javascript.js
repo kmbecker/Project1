@@ -78,8 +78,6 @@ var getKey;
            //---------------------------------Below is add to favorites button ------------
 
 
-
-
       // Function for displaying the movie info
       function displayMovieInfo(){
         
@@ -121,6 +119,11 @@ var getKey;
           $("#favbtnDiv").html("<button type='button' class='btn btn-info btn-sm' id = 'favbtn'>Add to Favorites</button>")
             
           $(".poster").html("<img src= " + poster +">");
+
+          // Pull trailer playlist from YouTube
+
+          $("#trailerDiv").html("<iframe width='560' height='315' src='https://youtube.com/embed?listType=search&list=" + movie + "+trailer' frameborder='0' allowfullscreen></iframe>");
+
          
 
 
