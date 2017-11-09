@@ -30,7 +30,7 @@ var getKey2;
       var sugs = [];
       var actors = [];
       var actorArr = [];
-      var website;
+      var movieTitle;
 
    $(document).ready(function() {
 
@@ -92,17 +92,18 @@ var getKey2;
               
               
             console.log(actorArr)
-            
+              movieTitle = response.Title;
               rating = response.Rated;
               release = response.Released;
               plot = response.Plot;
               poster = response.Poster;
-              website = response.Website;
+             
                 var overview = JSON.stringify(response);
-          $(".trailer").html("<a href = "+ website + " target = '_blank'>" + website +
-           "</a>");
-           $(".trailer").append("<br><h2>Rating: " + rating +"<br>Released: " + release +"<br>Plot: "
+        
+           $(".trailer").html("<h2>Rating: " + rating +"<br>Released: " + release +"<br>Plot: "
            + plot);
+
+            // $(“#htmlTitle”).html(“<h2>” + movieTitle + “</h2>“);
           $("#favbtnDiv").html("<button type='button' class='btn btn-info btn-sm' id = 'favbtn'>Add to Favorites</button>")
           $("#sugDiv").html("<button type='button' class='btn btn-info btn-sm' " +
              "id = 'sugbtn'>Add to Suggestions</button>");
