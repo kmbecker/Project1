@@ -43,11 +43,18 @@ input[type=text] {
 .search-bar{
 	color:black;
 }
-
+.poster{
+	/*float: left;*/
+}
 #suggestionsForm{
 	display: none;
 }
+
 #actorDiv{
 	display: inline-block;
 	width: 100%;
+}
+#wrapper{
+	/*float:right;*/
+	display: inline-block;
 }
