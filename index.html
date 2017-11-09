@@ -25,28 +25,31 @@
 		<input id="searchInput" type="text" name="search" placeholder="Search Movie/TV Show.."><button type="submit" class="btn btn-info submit" id="submitId">Submit</button>
 	</form> 
 
-	<!-- Other movie recommendations based on search, make these clickable!! -->
-	<div class="container-fluid movie-recommendations">
-		<h3>Movie Recommendations</h3>
-	</div>
+	<!-- Searched title from OMDB -->
+	<div id="htmlTitle" class="col-md-12"></div>
 
+		<!-- Add to favorites -->
+		<div class ="container col-sm-2" id = "favbtnDiv"></div>
+
+		<!-- Add to suggestions -->
+		<div class = "container col-sm-2" id = "sugDiv"></div>
 	
-	
-	<!-- Trailer Section                         Movie Poster Information -->
-	
-	<div class="container col-sm-4 trailer" id="trailerDiv"></div>
+
 
 	<div id = "wrapper" class = "container">
 		
+		<!-- Trailer Player -->
+		<div class="col-md-6" id="playDiv"></div>	
 
-		<div class="container col-sm-4 trailer">
-		<h3>Trailer</h3>
-		</div>
-		<div class ="container col-sm-2" id = "favbtnDiv"></div>
-		<div class = "container col-sm-2" id = "sugDiv"></div>
-		<div class="container col-sm-2 poster">
-			<h3>Poster</h3>
-		</div>
+		<!-- Movie Poster -->
+		<div class="col-md-6 poster"></div>	
+
+
+		<!-- Rating and Plot Information -->
+		<div class="col-md-6 col-sm-4 trailer"></div>
+
+		<!-- Movie Poster
+		<div class="container col-sm-2 poster"></div> -->
     
 
     </div><br>
