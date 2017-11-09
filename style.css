@@ -34,7 +34,7 @@ input[type=text] {
 	color: #e5f97c;
 	text-shadow: black 15px 15px 15px;
 }
-.favMovie{
+.favMovie, .sugMovie{
 	margin: 5px;
 }
 
