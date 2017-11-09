@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movies and Television Information</title>
+
+	<!-- Initilize CSS/Bootstrap files -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Initilize firebase -->
+	<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<!-- Insert Header/Jumbotron -->
+	<div>
+		<h1 class="jumbotron header">Mystery Sinus Theatre 3000</h1>
+	</div>
+
+	<!-- Description Section information -->
+	<div class="container-fluid description">
+		<h2>Description of website and what it does!!!</h2>
+	</div>
+
+	<!-- Search Bar for Website that will be used to trigger AJAX requests -->
+	<form id="searchForm" class="container-fluid search-bar">
+		<input id="searchInput" type="text" name="search" placeholder="Search Movie/TV Show.."><button type="submit" class="btn btn-info submit" id="submitId">Submit</button>
+	</form> 
+	</br>
+
+	<!-- Movie Trailer -->
+	<div class="col-md-7"  id="trailerDiv"></div>
+
+	<!-- Poster -->
+	<div class="col-md-4 container poster"></div>
+
+	
+	<!-- Rating information -->
+	<div id="container trailer"></div>
+
+	<!-- Favorite Button -->
+	<div class ="container" id = "favbtnDiv"></div>
+	
+	
+	</div>
+
+
+	<!-- Actor Information -->
+	<div class="col-md-12 container actor-image actor">
+		<h3>Actors</h3>
+		<div id = "actorDiv"></div>
+	</div>
+
+	<!-- Top 3 Giphy Images -->
+	<div class="col-md-12 giphy giphy-images">
+		<h3>Giphys!</h3>
+		<div id = "giphyDiv"></div>
+	</div>
+
+
+
+	<!-- Other movie recommendations based on search, make these clickable!! -->
+	<div class="col-md-12 movie-recommendations">
+		<h3>Movie Recommendations</h3>
+	</div>	
+
+	<!-- Current suggestions of developers!! Make this updated by Firebase! -->
+	<div class="col-md-12 suggestions">
+		<h3>Suggestions</h3>
+		<form id="suggestionsForm">
+			<input id="suggestionsInput" type="text" name="search" placeholder="Suggestions.."><button type="submit" class="btn btn-info submit" id="suggestionsButton">Add</button>
+		</form>
+	</div>
+
+	<!-- Also allow favorites to be saved and retained on a users computer -->
+	<div class="col-md-12 favorites">
+		<h3>Favorites</h3>
+		<table id = "favoritesDiv"></table>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src=javascript.js></script>
+
+
+</body>
+</html>
