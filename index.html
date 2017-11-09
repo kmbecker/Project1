@@ -10,79 +10,83 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<!-- Insert Header/Jumbotron -->
-	<div>
-		<h1 class="jumbotron header">Mystery Sinus Theatre 3000</h1>
-	</div>
-
-	<!-- Description Section information -->
-	<div class="container-fluid description">
-		<h3>Description</h3>
-	</div>
-
-	<!-- Search Bar for Website that will be used to trigger AJAX requests -->
-	<form id="searchForm" class="container-fluid search-bar">
-		<input id="searchInput" type="text" name="search" placeholder="Search Movie/TV Show.."><button type="submit" class="btn btn-info submit" id="submitId">Submit</button>
-	</form> 
-
-	<!-- Searched title from OMDB -->
-	<div id="htmlTitle" class="col-md-12"></div>
-
-		<!-- Add to favorites -->
-		<div class ="container col-sm-2" id = "favbtnDiv"></div>
-
-		<!-- Add to suggestions -->
-		<div class = "container col-sm-2" id = "sugDiv"></div>
-	
-
-
+	<!-- Begin Wrapper -->
 	<div id = "wrapper" class = "container">
 		
-		<!-- Trailer Player -->
-		<div class="col-md-6" id="playDiv"></div>	
+		<!-- Insert Header/Jumbotron -->
+		<div>
+			<h1 class="jumbotron header">Mystery Sinus Theatre 3000</h1>
+		</div>
 
-		<!-- Movie Poster -->
-		<div class="col-md-6 poster"></div>	
+		<!-- Description Section information -->
+		<div class="container-fluid description">
+			<h3>Description</h3>
+		</div>
 
+		<!-- Search Bar for Website that will be used to trigger AJAX requests -->
+		<form id="searchForm" class="col-md-12 search-bar">
+			<input id="searchInput" type="text" name="search" placeholder="Search Movie/TV Show.."><button type="submit" class="btn btn-info submit" id="submitId">Submit</button>
+		</form> 
+
+		<!-- Searched Title From OMDB -->
+		<div id="htmlTitle" class="col-lg-12 col-md-12"></div>
+
+		<!-- Button Containers -->
+		<div class="col-md-12 buttonsButtons">
+			<!-- Add to favorites -->
+			<div class ="col-md-2" id = "favbtnDiv"></div>
+
+			<!-- Add to suggestions -->
+			<div class = "col-md-2" id = "sugDiv"></div>
+			<div class = "col-md-8"></div>
+		</div>
+
+		<!-- Movie Trailer and poster container -->
+		<div class="col-md-12 col-lg-12 trailerPoster">
+			<!-- Trailer Player -->
+			<div class="col-md-8" id="playDiv"></div>	
+
+			<!-- Movie Poster -->
+			<div class="col-md-4 container-fluid poster"></div>	
+		</div>
 
 		<!-- Rating and Plot Information -->
-		<div class="col-md-6 col-sm-4 trailer"></div>
+		<div id="plotFormatting" class="col-md-12 col-sm-12 trailer"></div>
+	
+		<!-- Actor Images Actor Images Actor Images Actor Images Actor Images -->
+		<div class="col-md-12 actor-image actor">
+			<h3>Actors</h3>
+			<div id = "actorDiv"></div>
+		</div>
 
-		<!-- Movie Poster
-		<div class="container col-sm-2 poster"></div> -->
-    
+		<!-- Top 3 Giphy Images -->
+		<div class="col-md-12">
+			<h3>Giphys!</h3>
+			<div id = "giphyDiv"></div>
+		</div>
 
-    </div><br>
+		<!-- Suggestions from users!! Updated via Firebase -->
+		<div class="container-fluid suggestions">
+			<h3>Suggestions</h3>
+			<div class="container-fluid" id = "suglocDiv"></div>
+			<form id="suggestionsForm">
+				<input id="suggestionsInput" type="text" name="search" placeholder="Suggestions.."><button type="submit" class="btn btn-info submit" id="suggestionsButton">Add</button>
+			</form>
+		</div>
+
+
+		<!-- Also allow favorites to be saved and retained on a users computer -->
+		<div class="container-fluid favorites">
+			<h3>Favorites</h3>
+			<table id = "favoritesDiv"></table>
+		</div>
+
+	</div>
+    <!-- End of Wrapper -->
 
 	
 
-	<!-- Actor Images Actor Images Actor Images Actor Images Actor Images -->
-	<div class="container-fluid actor-image actor">
-		<h3>Actors</h3>
-		<div id = "actorDiv"></div>
-	</div>
 
-	<!-- Top 3 Giphy Images -->
-	<div class="container-fluid giphy giphy-images">
-		<h3>Giphys!</h3>
-		<div id = "giphyDiv"></div>
-	</div>
-
-	<!-- Current suggestions of developers!! Make this updated by Firebase! -->
-	<div class="container-fluid suggestions">
-		<h3>Suggestions</h3>
-		<div class="container-fluid" id = "suglocDiv"></div>
-		<form id="suggestionsForm">
-			<input id="suggestionsInput" type="text" name="search" placeholder="Suggestions.."><button type="submit" class="btn btn-info submit" id="suggestionsButton">Add</button>
-		</form>
-	</div>
-
-
-	<!-- Also allow favorites to be saved and retained on a users computer -->
-	<div class="container-fluid favorites">
-		<h3>Favorites</h3>
-		<table id = "favoritesDiv"></table>
-	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src=javascript.js></script>
 
