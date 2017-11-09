@@ -14,14 +14,6 @@ var getKey;
   // firebase.initializeApp(config);
 // create global variables
 
-
-
-
-
-// ---------------------- below is  OMD API Call!!!!
-
-
-
       var movie;
       var giphyName;
       var alertMovie;
@@ -36,14 +28,7 @@ var getKey;
 
    $(document).ready(function() {
 
-    //initial favorites firebase load
-    //  dataref to set initial movie favorites
-
-
-
-
-
-      // This function handles events where one button is clicked
+      // This function handles events where submit button is clicked
       $("#submitId").on("click", function(event) {
 
         function search_function(searchInput){
@@ -74,9 +59,7 @@ var getKey;
         $("#searchInput").val("");
       });// ends submit
 
-
-           //---------------------------------Below is add to favorites button ------------
-
+// --------------------------------------------------- functions---------------------------!!!!
 
       // Function for displaying the movie info
       function displayMovieInfo(){
@@ -132,15 +115,7 @@ var getKey;
         
         };// ends display movie function
       
-      // $(document).on("click", ".movie", function(){
-      //   console.log(this)
-      //   movie = $(this).data( "name" );
-       
-      //   displayMovieInfo()
-      // });
-
-
- 
+  
 
       // ---------------------------------Below is Giphy API------------!!!!!!
 
@@ -159,7 +134,6 @@ var getKey;
         }).done(function(response) {
           console.log(response)
              var results = response.data;
-                // console.log(results) 
 
                 for (var i = 0; i < results.length; i++) {
                   var gifDiv = $("<div class='item col-sm-2'>");
@@ -202,6 +176,10 @@ var getKey;
 
      // Render buttons inital 
       renderButtons();
+
+// ------------------------------------------------ click functions --------------------!!!!
+
+
       // favorit movies on click
       $('body').on('click', '.favMovie', function() {
           movie = $(this).text();
@@ -251,11 +229,6 @@ var getKey;
             $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
           }
         });//end of pause
-
-          function clearFav() {
-            var favName = $(this).attr("data-name");
-            console.log(favName)
-          }
 
 
 });//end of document ready     
