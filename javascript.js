@@ -145,7 +145,7 @@ var getKey2;
              var results = response.data;
 
                 for (var i = 0; i < results.length; i++) {
-                  var gifDiv = $("<div class='item col-sm-2'>");
+                  var gifDiv = $("<div class='item col-md-4'>");
 
                   gifyName[i] = giphyName;
 

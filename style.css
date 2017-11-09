@@ -23,15 +23,14 @@ input[type=text] {
 }
 
 .item{
-	width: 30%;
-	margin: 15px;
+	max-width: 50%;
 }
 
 .jumbotron {
 	text-align: center;
 	background-color: #74beda;
 	color: #e5f97c;
-	text-shadow: black 15px 15px 15px;
+	text-shadow: black 15px 15px 15px;	/*Allow title to pop a little*/
 }
 
 .favMovie, .sugMovie{
@@ -41,6 +40,7 @@ input[type=text] {
 .clearDiv{
 	display: inline-block;
 }
+
 .search-bar{
 	color:black;
 }
@@ -48,6 +48,7 @@ input[type=text] {
 	/*float: left;*/
 }
 
+/*Space trailers down from buttons, attempt to center from movie poster*/
 #playDiv {
 	margin-top: 8%;
 }
@@ -63,6 +64,6 @@ input[type=text] {
 #wrapper{
 	/*float:right;*/
 	/*display: inline-block;*/
-	background-color: rgba(0,0,0,0.6);
-	border-radius: 10px;
+	background-color: rgba(0,0,0,0.6);	/*Give wrapper seperate background color to differ from image*/
+	border-radius: 10px;  /*Round edges of background */
 }
