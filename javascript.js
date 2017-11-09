@@ -100,12 +100,15 @@ var getKey;
            $(".trailer").append("<br><h2>Rating: " + rating +"<br>Released: " + release +"<br>Plot: "
            + plot);
           $("#favbtnDiv").html("<button type='button' class='btn btn-info btn-sm' id = 'favbtn'>Add to Favorites</button>")
+          $("#sugDiv").html("<button type='button' class='btn btn-info btn-sm' " +
+             "id = 'sugbtn'>Add to Suggestions</button>");
             
           $(".poster").html("<img src= " + poster +">");
 
           // Pull trailer playlist from YouTube
 
-          $("#trailerDiv").html("<iframe width='560' height='315' src='https://youtube.com/embed?listType=search&list=" + movie + "+trailer' frameborder='0' allowfullscreen></iframe>");
+          $("#trailerDiv").html("<iframe width='560' height='315' src='https://youtube.com/embed?listType=search&list=" +
+           movie + "+trailer' frameborder='0' allowfullscreen></iframe>");
 
          
 
@@ -169,7 +172,7 @@ var getKey;
             console.log(childSnapShot.key())
           $("#favoritesDiv").append("<div class = 'clearDiv' id = '" + childSnapShot.key() +"'><button data-name = '" +
            fav + "' class = 'favMovie btn btn-info'>" +
-           fav + "</button><br><span data-name = '" + fav + "' class = 'clear'>X</span></div")
+           fav + "</button><br><div data-name = '" + fav + "' class = 'clear'>X</div</div")
                
            });//end of child added
           };//end of render
@@ -229,6 +232,8 @@ var getKey;
             $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
           }
         });//end of pause
+// -----------------------------------------------hover css features ---------!!!!!
+
 
 
 });//end of document ready     
