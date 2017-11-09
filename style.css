@@ -16,7 +16,7 @@ input[type=text] {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	height: 35px;
-    width: 45%;
+    width: 91%;
     margin-right: 5px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
@@ -34,6 +34,7 @@ input[type=text] {
 	color: #e5f97c;
 	text-shadow: black 15px 15px 15px;
 }
+
 .favMovie, .sugMovie{
 	margin: 5px;
 }
@@ -47,6 +48,11 @@ input[type=text] {
 .poster{
 	/*float: left;*/
 }
+
+#playDiv {
+	margin-top: 5%;
+}
+
 #suggestionsForm{
 	display: none;
 }
@@ -57,5 +63,5 @@ input[type=text] {
 }
 #wrapper{
 	/*float:right;*/
-	display: inline-block;
+	/*display: inline-block;*/
 }
