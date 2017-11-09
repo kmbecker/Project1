@@ -2,6 +2,11 @@
 var url ="https://movieproject-fc07e.firebaseio.com";
 var dataRef = new Firebase(url);
 var getKey;
+
+// ------------ Firebase 2nd Suggestions _--------!
+var url2 ="https://test-f0675.firebaseio.com";
+var dataRef2 = new Firebase(url2);
+var getKey2;
   // Initialize Firebase
   // var config = {
   //   apiKey: "AIzaSyDHolWI_ZAvFdCLyYUFDiSNnsWLiS485OQ",
@@ -22,6 +27,7 @@ var getKey;
       var plot;
       var poster;
       var favs = [];
+      var sugs = [];
       var actors = [];
       var actorArr = [];
       var website;
@@ -44,14 +50,12 @@ var getKey;
         });
 
         event.preventDefault();
-        console.log("button pressed")
         giphyName = $("#searchInput").val();
 
         // This line grabs the input from the textbox
         movie = $("#searchInput").val().trim();
         favs.push(movie);
-        console.log(favs);
-        console.log(movie);
+        sugs.push(movie);
         
         $("#favbtnDiv").css("display" , "block")
         displayMovieInfo();
@@ -159,9 +163,22 @@ var getKey;
         });
       };//end of displayGifs
 
+// render suggestions buttons !!!!!!!!!
+      function renderSugButtons() {
+        $("#suglocDiv").empty();
+        dataRef2.on("child_added", function(childSnapShot){
+            var sug = childSnapShot.val().favoritesFIRE;
+       $("#suglocDiv").append("<div class = 'clearDiv' id = '" + childSnapShot.key() +"'><button data-name = '" +
+           sug + "' class = 'favMovie btn btn-info'>" +
+           sug + "</button><br><div data-name = '" + sug + "' class = 'clear'>X</div</div")
+               
+           });//end of child added
+          };//end of render
 
+          renderSugButtons();
       //render buttons function
       function renderButtons() {
+
 
         // Deleting the movies prior to adding new movies
         // (this is necessary otherwise we will have repeat buttons)
@@ -169,7 +186,7 @@ var getKey;
            dataRef.on("child_added", function(childSnapShot){
             var fav = childSnapShot.val().favoritesFIRE;
             // console.log(fav);
-            console.log(childSnapShot.key())
+            // console.log(childSnapShot.key())
           $("#favoritesDiv").append("<div class = 'clearDiv' id = '" + childSnapShot.key() +"'><button data-name = '" +
            fav + "' class = 'favMovie btn btn-info'>" +
            fav + "</button><br><div data-name = '" + fav + "' class = 'clear'>X</div</div")
@@ -200,8 +217,12 @@ var getKey;
           event.preventDefault();
                   keyHolder = dataRef.push({
                   favoritesFIRE: movie,
-           })//end of push
-          
+                  });//end of push
+                  keyHolder2 = dataRef2.push({
+                  favoritesFIRE: movie,
+                  })//end of push
+
+        renderSugButtons()
         renderButtons();
         
         });//end of favbtn
@@ -233,7 +254,25 @@ var getKey;
           }
         });//end of pause
 // -----------------------------------------------hover css features ---------!!!!!
+ // $(document).on("mouseover", ".favMovie", function(){
+ //        console.log(this)
+ //          // $(this)children().css("display","block");
+ //          $(this).css("color","yellow");
+ //          // $('span').css("display", "block")
+ //      });
 
+ //      $(document).on("mouseout", ".favMovie", function(){
+        
+ //          $(this).css("color","white");
+ //      });
+ //       $(document).on("mouseover", ".clear", function(){
+      
+ //          $(this).css("color","yellow");
+ //      });
+ //       $(document).on("mouseout", ".clear", function(){
+ //          // console.log(this)
+ //          $(this).css("color","red");
+ //      });  
 
 
 });//end of document ready     
