@@ -100,8 +100,8 @@ var getKey2;
              
                 var overview = JSON.stringify(response);
         
-           $(".trailer").html("<h2>Rating: " + rating +"<br>Released: " + release +"<br>Plot: "
-           + plot);
+           $(".trailer").html("<h3>Rating: " + rating +"<br>Released: " + release +"<br>Plot: "
+           + plot + "</h3>");
 
           $("#favbtnDiv").html("<button type='button' class='btn btn-info btn-sm' id = 'favbtn'>Add to Favorites</button>")
           $("#sugDiv").html("<button type='button' class='btn btn-info btn-sm' " +

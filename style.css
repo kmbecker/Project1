@@ -22,18 +22,18 @@ input[type=text] {
     transition: width 0.4s ease-in-out;
 }
 
-.item{
+.item {
 	max-width: 50%;
 }
 
 .jumbotron {
 	text-align: center;
-	background-color: #74beda;
+	background-color: rgba(42,124,217,0.8);
 	color: #e5f97c;
 	text-shadow: black 15px 15px 15px;	/*Allow title to pop a little*/
 }
 
-.favMovie, .sugMovie{
+.favMovie, .sugMovie {
 	margin: 5px;
 }
 
@@ -41,9 +41,10 @@ input[type=text] {
 	display: inline-block;
 }
 
-.search-bar{
+.search-bar {
 	color:black;
 }
+
 .poster{
 	/*float: left;*/
 }
@@ -53,15 +54,24 @@ input[type=text] {
 	margin-top: 8%;
 }
 
-#suggestionsForm{
+#plotFormatting {
+	margin-top: 10px;
+	text-align: center;
+	border-color: blue;
+	border-radius: 10px;
+	background-color: rgba(42,124,217,0.8);
+}
+
+#suggestionsForm {
 	display: none;
 }
 
-#actorDiv{
+#actorDiv {
 	display: inline-block;
 	width: 100%;
 }
-#wrapper{
+
+#wrapper {
 	/*float:right;*/
 	/*display: inline-block;*/
 	background-color: rgba(0,0,0,0.6);	/*Give wrapper seperate background color to differ from image*/
