@@ -67,7 +67,7 @@ input[type=text] {
 
 /*Space trailers down from buttons, attempt to center from movie poster*/
 #playDiv {
-	margin-top: 8%;
+	margin-top: 55px;
 }
 
 #plotFormatting {
