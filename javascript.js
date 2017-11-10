@@ -12,19 +12,19 @@ var getKey2;
   
 //  ---------------- Initialize Kyle Firebase ---------------!!!!!
 
-var urlKyle ="https://test-f0675.firebaseio.com";
+var urlKyle ="https://kyle-6eb48.firebaseio.com";
 var dataRefKyle = new Firebase(urlKyle);
 var getKeyKyle;
 
 //  ---------------- Initialize Cole Firebase ---------------!!!!!
 
-var urlCole ="https://movieproject-fc07e.firebaseio.com";
+var urlCole ="https://cole-d1c96.firebaseio.com";
 var dataRefCole = new Firebase(urlCole);
 var getKeyCole;
 
 //  ---------------- Initialize Guest Firebase ---------------!!!!!
 
-var urlGuest ="https://movieproject-fc07e.firebaseio.com";
+var urlGuest ="https://guest-e3750.firebaseio.com";
 var dataRefGuest = new Firebase(urlGuest);
 var getKeyCole;
 
@@ -47,7 +47,11 @@ var getKeyCole;
 
    $(document).ready(function() {
 
-
+$("#item1").change(function(){
+  users();
+  renderButtons();
+  console.log("movin on up")
+})
 
 //  ---------------- Testing USER ACCOUNTS BELOW HERE ---------------!!!!! 
 
@@ -58,15 +62,20 @@ var getKeyCole;
     var s = document.getElementById('item1');
     var item1 = s.options[s.selectedIndex].value;
     if (item1 == 1) {
+      dataRef = dataRefCole;
+
       console.log("Cole")
     }
     else if (item1 == 2) {
+      dataRef = dataRefKyle;
       console.log("Kyle")
     }
     else if (item1 == 3) {
+      dataRef = new Firebase(url);
       console.log("Seth")
     }
     else {
+      dataRef = dataRefGuest;
       console.log("Error")
     }
 };//end users
@@ -280,7 +289,7 @@ var getKeyCole;
         });//end of favorite click function
 
 
- //  ---------------- Add Suggestion Button click ---------------!!!!!
+ //  ---------------- Add Suggestion Button click FIREBASE PUSH---------------!!!!!
         $('body').on('click', '#sugbtn', function() {
                   keyHolder2 = dataRef2.push({
                   favoritesFIRE: movie,
@@ -290,8 +299,9 @@ var getKeyCole;
 
         })//end of sugbtn click function
 
-  //  ---------------- Add Favorite Button Click ---------------!!!!!
+  //  ---------------- Add Favorite Button Click FIREBASE PUSH---------------!!!!!
         $('body').on('click', '#favbtn', function() {
+                  users();
                   keyHolder = dataRef.push({
                   favoritesFIRE: movie,
                   });//end of push
