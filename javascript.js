@@ -36,46 +36,34 @@ var getKey2;
 
       // This function handles events where submit button is clicked
       $("#submitId").on("click", function(event) {
-        var error = $("#searchInput").val();
 
-        if (error === "") {
-          $("#error").html("Please Enter A Movie or Tv show")
+        function search_function(searchInput){
+          // Do your search action here
+          alert(searchInput);
+        };
+        $(function(){
+          $("#searchForm").on("submit", function(e){
+            search_function($("#searchInput").val());
+            e.preventDefault(); // Prevents submitting in most browsers
+            return false; // Prevents submitting in some other browsers
+          });
+        });
 
-        } else {
-          ("#error").empty()
-          submitClick()
-        }
+        event.preventDefault();
+        giphyName = $("#searchInput").val();
+
+        // This line grabs the input from the textbox
+        movie = $("#searchInput").val().trim();
+        favs.push(movie);
+        sugs.push(movie);
         
+        $("#favbtnDiv").css("display" , "block")
+        displayMovieInfo();
+        displayGifs();
+        $("#searchInput").val("");
       });// ends submit
 
 // --------------------------------------------------- functions---------------------------!!!!
-        function submitClick(){
-
-            function search_function(searchInput){
-              // Do your search action here
-              alert(searchInput);
-            };
-            $(function(){
-              $("#searchForm").on("submit", function(e){
-                search_function($("#searchInput").val());
-                e.preventDefault(); // Prevents submitting in most browsers
-                return false; // Prevents submitting in some other browsers
-              });
-            });
-
-            event.preventDefault();
-            giphyName = $("#searchInput").val();
-
-            // This line grabs the input from the textbox
-            movie = $("#searchInput").val().trim();
-            favs.push(movie);
-            sugs.push(movie);
-            
-            $("#favbtnDiv").css("display" , "block")
-            displayMovieInfo();
-            displayGifs();
-            $("#searchInput").val("");
-         };
 
       // Function for displaying the movie info
       function displayMovieInfo(){
@@ -177,24 +165,7 @@ var getKey2;
                   gifDiv.prepend(p);
 
                   $("#giphyDiv").append(gifDiv);
-                  $("#newGiphy").on("click", function(){
-                    var imgSrc;
-                    console.log("click");
-                    $.ajax({
-                    url: queryURL,
-                    method: "GET",
-                    success: function(response){
-                      imgSrc=response.data.image_url;
-                      $("#giphyDiv").attr("src", imgSrc);
-                      return false;
-                      console.log(imgSrc);
-                    },
-                    error: function(e) {
-                      console.log("uh oh")
-                    }
-                  });
-                });
-              }
+                }
         });
       };//end of displayGifs
 
