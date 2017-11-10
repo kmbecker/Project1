@@ -14,17 +14,19 @@
 	<div id = "wrapper" class = "container">
 		
 		<!-- Insert Header/Jumbotron -->
-		<div>
-			
-			<h1 class="jumbotron header">
-				<select id = "item1" name = "Item1">
-				<option value="1">Cole</option>
-				<option value="2">Kyle</option>
-				<option value="3">Seth</option>
-				<option value="4">Guest</option>
-				</select><br>Mystery Sinus Theatre 3000
-			</h1>
+		<div class="jumbotron header">
+			<h1>Mystery Sinus Theatre 3000</h1>
 		</div>
+			<!-- User account selection -->
+			<div id="userSelection">
+				Please select the active user:
+					<select id = "item1" name = "Item1">
+						<option value="1">Cole</option>
+						<option value="2">Kyle</option>
+						<option value="3">Seth</option>
+						<option value="4">Guest</option>
+					</select>
+			</div>
 
 		<!-- Description Section information -->
 		<div class="container-fluid description">
@@ -37,7 +39,7 @@
 			<input id="searchInput" type="text" name="search" placeholder="Search Movie/TV Show.."><button type="submit" class="btn btn-info submit" id="submitId">Submit</button>
 		</form> 
 		<!-- Error Div -->
-		<div id = "error" class="col-lg-12 col-md-12">error</div>
+		<div id = "error" class="centered col-lg-12 col-md-12"></div>
 		<!-- Searched Title From OMDB -->
 		<div id="htmlTitle" class="col-lg-12 col-md-12"></div>
 
@@ -80,22 +82,29 @@
 		<!-- Suggestions from users!! Updated via Firebase -->
 		<div class="container-fluid suggestions">
 			<h3>Suggestions from other users</h3>
-			<div class="container-fluid" id = "suglocDiv"></div>
-			
+			<div class="container-fluid" id = "suglocDiv">
+			</div>
 		</div>
 
 
-		<!-- Also allow favorites to be saved and retained on a users computer -->
+		<!-- Favorites saved to firebase as indicated by user -->
 		<div class="container-fluid favorites">
 			<h3>Favorites</h3>
 			<div class = "container-fluid favorites" id = "favoritesDiv"></div>
 		</div>
 
-	</div>
-    <!-- End of Wrapper -->
+		<!-- Footer -->
+		<footer class="modal-footer">
+			<div class="Container centered">
+				<p>Built by Seth Walton, Kyle Becker, and Cole Mertz</p>
+				<span class="text-muted">Powered by GIPHY and OMDB API</span>
+				<span class="text-muted">Built Utilizing Firebase</span>
+			</div>
+		</footer>
 
-	
 
+	<!-- End Wrapper -->
+	</div>   
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src=javascript.js></script>
