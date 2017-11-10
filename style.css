@@ -43,6 +43,9 @@ input[type=text] {
     transition: width 0.4s ease-in-out;
 }
 
+select {
+	color:black;
+}
 .description {
 	
 }
@@ -94,10 +97,6 @@ input[type=text] {
 	border-color: blue;
 	border-radius: 10px;
 	background-color: rgba(42,124,217,0.8);
-}
-
-#suggestionsForm {
-	display: none;
 }
 
 #actorDiv {
