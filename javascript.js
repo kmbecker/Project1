@@ -42,6 +42,7 @@ var getKeyCole;
       var actors = [];
       var actorArr = [];
       var movieTitle;
+      var counter=0;
 
 //  ---------------- Inititial document ready ---------------!!!!!     
 
@@ -200,8 +201,7 @@ $("#item1").change(function(){
 
         
         var gifyName = [];
-
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphyName + "&api_key=dc6zaTOxFJmzC&limit=3";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphyName + "&api_key=dc6zaTOxFJmzC&limit=3&offset=" + counter;
 
           $.ajax({
             url: queryURL,
@@ -227,7 +227,10 @@ $("#item1").change(function(){
                   gifDiv.prepend(p);
 
                   $("#giphyDiv").append(gifDiv);
-                }
+                  
+
+                };
+                counter=counter+3;
         });
       };//end of displayGifs
             //  ---------------- Render Suggestion Buttons ---------------!!!!!
@@ -342,6 +345,12 @@ $("#item1").change(function(){
             $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
           }
         });//end of pause
+
+        //-------------------Shuffle Giphy----------------------!!!!
+          $("#giphyButton").on("click", function(event) {
+            displayGifs();
+          });//end of shuffle
+
 // -----------------------------------------------hover css features ---------!!!!!
  // $(document).on("mouseover", ".favMovie", function(){
  //        console.log(this)
