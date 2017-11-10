@@ -98,7 +98,7 @@ $("#item1").change(function(){
           if (error === "") {
             console.log("yay")
             $("#error").css("display","block")
-            $("#error").html("Please enter a Movie or TV show before pressing Search Button")
+            $("#error").html("Please enter a Movie or TV show before pressing submit button")
           } else {
             $("#error").css("display","none")
             submitClick();
