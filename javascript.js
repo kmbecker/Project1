@@ -89,7 +89,7 @@ $("#item1").change(function(){
 
 //  ---------------- TESTING ABOVE ---------------!!!!! 
 
-//  ---------------- This function handles events when submit button is clicked ---------------!!!!!
+//  ---------------- This function handles events when search button is clicked ---------------!!!!!
 
       $("#submitId").on("click", function(event) {
           event.preventDefault();
@@ -98,7 +98,7 @@ $("#item1").change(function(){
           if (error === "") {
             console.log("yay")
             $("#error").css("display","block")
-            $("#error").html("Please enter a Movie or TV show before pressing submit button")
+            $("#error").html("Please enter a Movie or TV show before pressing search button")
           } else {
             $("#error").css("display","none")
             submitClick();
