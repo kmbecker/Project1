@@ -1,10 +1,11 @@
+/*Background and font selection*/
 body {
 	background: url('curtain.jpg') no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        color: white;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white;
 }
 
 a {
@@ -28,10 +29,19 @@ a:visted {
 	color: #f0f2e6;
 }
 
+/*Stylize fotter bar*/
+footer {
+	margin-top: 25px;
+	padding-bottom: 15px;
+	border-radius: 10px;
+	background: rgba(42,124,217,0.3);
+}
+
 h3 {
 	color: #e5f97c;
 }
 
+/*Stylize input forms*/
 input[type=text] {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -46,47 +56,60 @@ input[type=text] {
 select {
 	color:black;
 }
-.description {
-	
-}
 
-.item {
-	max-width: 50%;
-}
-
-.jumbotron {
-	text-align: center;
-	background-color: rgba(42,124,217,0.8);
-	color: #e5f97c;
-	text-shadow: black 15px 15px 15px;	/*Allow title to pop a little*/
-}
-
-.favMovie, .sugMovie {
-	margin: 5px;
+/*Customize buttons to page styling*/
+.btn-info {
+	background-color: rgba(42,124,217,1);
+	border-color: rgba(42,124,217,0.8);
 }
 
 .clearDiv{
 	display: inline-block;
 }
 
-.search-bar {
-	color:black;
-}
-
-.poster{
-	/*float: left;*/
-}
-
+/*Format input validation prompt*/
 #error {
+	margin-top: 10px;
 	display: none;
 	background-color: red;
 	color: #e5f97c;
 	text-align: center;
 	align-content: center;
-	width: 100%;
+	border-radius: 10px;
 }
 
-/*Space trailers down from buttons, attempt to center from movie poster*/
+/*Keep the GIPHYs size from getting out of hand*/
+.item img {
+	max-width: 100%;
+	margin-bottom: 10px;
+}
+
+.jumbotron {
+	text-align: center;
+	background-color: rgba(42,124,217,0.4);
+	color: #e5f97c;
+	text-shadow: black 15px 15px 15px;
+}
+
+.favMovie, .sugMovie {
+	margin: 5px;
+}
+
+.search-bar {
+	color:black;
+}
+
+#userSelection {
+	padding: 5px;
+	align-content: center;
+	text-align: center;
+	background-color: grey;
+	border-radius: 10px;
+	display: inline-block;
+	margin-left: 15px;
+	margin-bottom: 10px;
+}
+
 #playDiv {
 	margin-top: 55px;
 }
@@ -94,7 +117,6 @@ select {
 #plotFormatting {
 	margin-top: 10px;
 	text-align: center;
-	border-color: blue;
 	border-radius: 10px;
 	background-color: rgba(42,124,217,0.8);
 }
@@ -105,8 +127,6 @@ select {
 }
 
 #wrapper {
-	/*float:right;*/
-	/*display: inline-block;*/
-	background-color: rgba(0,0,0,0.6);	/*Give wrapper seperate background color to differ from image*/
+	background-color: rgba(0,0,0,0.7);	/*Give wrapper seperate background color to differ from image*/
 	border-radius: 10px;  /*Round edges of background */
 }
