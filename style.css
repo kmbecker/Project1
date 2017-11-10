@@ -96,10 +96,6 @@ input[type=text] {
 	background-color: rgba(42,124,217,0.8);
 }
 
-#suggestionsForm {
-	display: none;
-}
-
 #actorDiv {
 	display: inline-block;
 	width: 100%;
