@@ -86,8 +86,12 @@ var getKey2;
               actorArr = actors.split(",");
               for (var i = actorArr.length - 1; i >= 0; i--) {
 
-              $("#actorDiv").append("<div class = 'container-fluid actimg " + col +"' id = "  +
-               "'" + actorArr[i] + "'>" + actorArr[i]+ "</div>");
+              // $("#actorDiv").append("<div class = 'container-fluid actimg " + col +"' id = "  +
+              //  "'" + actorArr[i] + "'>" + actorArr[i]+ "</div>");
+                var res=actorArr[i].replace(/ /g, "_");
+                var wikiURL= "https://en.wikipedia.org/wiki/"+res+"?index.php?action=render";
+                  console.log(wikiURL);
+                $("#actorDiv").append("<div class='container-fluid actimg" + col +"'><a href = "+ wikiURL + " target = '_blank'>" + actorArr[i] + "</a></div>");
               };
               
               
