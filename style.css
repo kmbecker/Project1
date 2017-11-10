@@ -7,6 +7,10 @@ body {
         color: white;
 }
 
+a {
+	font-size: 18px;
+}
+
 a:link {
 	text-decoration: none;
 	color: #f0f2e6;
