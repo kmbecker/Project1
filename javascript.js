@@ -32,6 +32,27 @@ var getKey2;
 
       $("#submitId").on("click", function(event) {
           event.preventDefault();
+          var error = $("#searchInput").val();
+          if (error === "") {
+            console.log("yay")
+            $("#error").css("display","block")
+            $("#error").html("Please enter a Movie or TV show before pressing Search Button")
+          } else {
+            $("#error").css("display","none")
+            submitClick();
+            
+          }
+          // } else {
+            // 
+          // };
+      });// ends submit
+
+//  ------------------------------ Functions Below -----------------------------!!!!!
+
+ //  ---------------- Search movie function ---------------!!!!!
+
+      function submitClick(){
+
         $(function(){ $("#searchForm").on("submit", function(e){
             search_function($("#searchInput").val());
             e.preventDefault(); // Prevents submitting in most browsers
@@ -49,9 +70,8 @@ var getKey2;
         displayMovieInfo();
         displayGifs();
         $("#searchInput").val("");
-      });// ends submit
 
-//  ------------------------------ Functions Below -----------------------------!!!!!
+      }
 
 //  ---------------- Function for displaying the movie info ---------------!!!!!
 
@@ -126,7 +146,7 @@ var getKey2;
             url: queryURL,
             method: "GET"
         }).done(function(response) {
-          console.log(response)
+
              var results = response.data;
 
                 for (var i = 0; i < results.length; i++) {
