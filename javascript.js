@@ -1,15 +1,33 @@
-//  ---------------- Initialize Firebase ---------------!!!!!
-// // Initialize Firebase
+//  ---------------- Initialize Seth Favorites Firebase ---------------!!!!!
+
 var url ="https://movieproject-fc07e.firebaseio.com";
 var dataRef = new Firebase(url);
 var getKey;
 
-//  ---------------- Firebase 2nd Suggestions ---------------!!!!!
+//  ---------------- Firebase test Suggestions ---------------!!!!!
 
 var url2 ="https://test-f0675.firebaseio.com";
 var dataRef2 = new Firebase(url2);
 var getKey2;
   
+//  ---------------- Initialize Kyle Firebase ---------------!!!!!
+
+var urlKyle ="https://test-f0675.firebaseio.com";
+var dataRefKyle = new Firebase(urlKyle);
+var getKeyKyle;
+
+//  ---------------- Initialize Cole Firebase ---------------!!!!!
+
+var urlCole ="https://movieproject-fc07e.firebaseio.com";
+var dataRefCole = new Firebase(urlCole);
+var getKeyCole;
+
+//  ---------------- Initialize Guest Firebase ---------------!!!!!
+
+var urlGuest ="https://movieproject-fc07e.firebaseio.com";
+var dataRefGuest = new Firebase(urlGuest);
+var getKeyCole;
+
 
 //  ---------------- Creat Global Variables ---------------!!!!!
       var movie;
@@ -28,10 +46,44 @@ var getKey2;
 //  ---------------- Inititial document ready ---------------!!!!!     
 
    $(document).ready(function() {
+
+
+
+//  ---------------- Testing USER ACCOUNTS BELOW HERE ---------------!!!!! 
+
+  function users(){
+    // var userName = $("#user").val();
+    // console.log(userName)
+
+    var s = document.getElementById('item1');
+    var item1 = s.options[s.selectedIndex].value;
+    if (item1 == 1) {
+      console.log("Cole")
+    }
+    else if (item1 == 2) {
+      console.log("Kyle")
+    }
+    else if (item1 == 3) {
+      console.log("Seth")
+    }
+    else {
+      console.log("Error")
+    }
+};//end users
+
+
+
+
+
+
+
+//  ---------------- TESTING ABOVE ---------------!!!!! 
+
 //  ---------------- This function handles events when submit button is clicked ---------------!!!!!
 
       $("#submitId").on("click", function(event) {
           event.preventDefault();
+          users();
           var error = $("#searchInput").val();
           if (error === "") {
             console.log("yay")
