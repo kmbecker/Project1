@@ -165,7 +165,24 @@ var getKey2;
                   gifDiv.prepend(p);
 
                   $("#giphyDiv").append(gifDiv);
-                }
+                  $("#newGiphy").on("click", function(){
+                    var imgSrc;
+                    console.log("click");
+                    $.ajax({
+                    url: queryURL,
+                    method: "GET",
+                    success: function(response){
+                      imgSrc=response.data.image_url;
+                      $("#giphyDiv").attr("src", imgSrc);
+                      return false;
+                      console.log(imgSrc);
+                    },
+                    error: function(e) {
+                      console.log("uh oh")
+                    }
+                  });
+                });
+              }
         });
       };//end of displayGifs
 
