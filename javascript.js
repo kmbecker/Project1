@@ -36,34 +36,46 @@ var getKey2;
 
       // This function handles events where submit button is clicked
       $("#submitId").on("click", function(event) {
+        var error = $("#searchInput").val();
 
-        function search_function(searchInput){
-          // Do your search action here
-          alert(searchInput);
-        };
-        $(function(){
-          $("#searchForm").on("submit", function(e){
-            search_function($("#searchInput").val());
-            e.preventDefault(); // Prevents submitting in most browsers
-            return false; // Prevents submitting in some other browsers
-          });
-        });
+        if (error === "") {
+          $("#error").html("Please Enter A Movie or Tv show")
 
-        event.preventDefault();
-        giphyName = $("#searchInput").val();
-
-        // This line grabs the input from the textbox
-        movie = $("#searchInput").val().trim();
-        favs.push(movie);
-        sugs.push(movie);
+        } else {
+          ("#error").empty()
+          submitClick()
+        }
         
-        $("#favbtnDiv").css("display" , "block")
-        displayMovieInfo();
-        displayGifs();
-        $("#searchInput").val("");
       });// ends submit
 
 // --------------------------------------------------- functions---------------------------!!!!
+        function submitClick(){
+
+            function search_function(searchInput){
+              // Do your search action here
+              alert(searchInput);
+            };
+            $(function(){
+              $("#searchForm").on("submit", function(e){
+                search_function($("#searchInput").val());
+                e.preventDefault(); // Prevents submitting in most browsers
+                return false; // Prevents submitting in some other browsers
+              });
+            });
+
+            event.preventDefault();
+            giphyName = $("#searchInput").val();
+
+            // This line grabs the input from the textbox
+            movie = $("#searchInput").val().trim();
+            favs.push(movie);
+            sugs.push(movie);
+            
+            $("#favbtnDiv").css("display" , "block")
+            displayMovieInfo();
+            displayGifs();
+            $("#searchInput").val("");
+         };
 
       // Function for displaying the movie info
       function displayMovieInfo(){
