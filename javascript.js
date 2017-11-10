@@ -19,9 +19,9 @@ var getKey2;
   // firebase.initializeApp(config);
 // create global variables
 
-      var movie;
-      var giphyName;
-      var alertMovie;
+      var movie = "";
+      var giphyName = "";
+      var alertMovie = "";
       var rating;
       var release;
       var plot;
@@ -34,36 +34,53 @@ var getKey2;
 
    $(document).ready(function() {
 
+    // if (movie === "") {
+    //       console.log("dude")
+    //     };
+
       // This function handles events where submit button is clicked
       $("#submitId").on("click", function(event) {
-
-        function search_function(searchInput){
-          // Do your search action here
-          alert(searchInput);
-        };
-        $(function(){
-          $("#searchForm").on("submit", function(e){
-            search_function($("#searchInput").val());
-            e.preventDefault(); // Prevents submitting in most browsers
-            return false; // Prevents submitting in some other browsers
-          });
-        });
-
         event.preventDefault();
-        giphyName = $("#searchInput").val();
+        var test = $("#searchInput").val();
+        if (test === "") {
+          $("#error").css("display" , "block")
+          $("#error").html("Please enter a valid Movie/TV title");
+          
+         clickSub();
+        };
 
-        // This line grabs the input from the textbox
-        movie = $("#searchInput").val().trim();
-        favs.push(movie);
-        sugs.push(movie);
         
-        $("#favbtnDiv").css("display" , "block")
-        displayMovieInfo();
-        displayGifs();
-        $("#searchInput").val("");
       });// ends submit
 
 // --------------------------------------------------- functions---------------------------!!!!
+
+
+          function clickSub(){
+            $("#error").empty();
+          
+              $(function(){
+                $("#searchForm").on("submit", function(e){
+                  search_function($("#searchInput").val());
+                  e.preventDefault(); // Prevents submitting in most browsers
+                  return false; // Prevents submitting in some other browsers
+                });
+              });
+
+              event.preventDefault();
+              giphyName = $("#searchInput").val();
+
+              // This line grabs the input from the textbox
+              movie = $("#searchInput").val().trim();
+              favs.push(movie);
+              sugs.push(movie);
+
+              
+              
+              $("#favbtnDiv").css("display" , "block")
+              displayMovieInfo();
+              displayGifs();
+             $("#searchInput").val(""); 
+        };
 
       // Function for displaying the movie info
       function displayMovieInfo(){
