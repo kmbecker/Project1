@@ -9,6 +9,7 @@ body {
 
 a:link {
 	text-decoration: none;
+	color: #f0f2e6;
 }
 
 a:hover {
@@ -63,6 +64,15 @@ input[type=text] {
 
 .poster{
 	/*float: left;*/
+}
+
+#error {
+	display: none;
+	background-color: red;
+	color: #e5f97c;
+	text-align: center;
+	align-content: center;
+	width: 100%;
 }
 
 /*Space trailers down from buttons, attempt to center from movie poster*/
