@@ -20,6 +20,10 @@ a:active {
     color: blue;
 }
 
+a:visted {
+	color: #f0f2e6;
+}
+
 h3 {
 	color: #e5f97c;
 }
