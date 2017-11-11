@@ -83,6 +83,9 @@ select {
 	max-width: 100%;
 	margin-bottom: 10px;
 }
+.clearDiv{
+	color: red;
+}
 
 .jumbotron {
 	text-align: center;
@@ -130,3 +133,12 @@ select {
 	background-color: rgba(0,0,0,0.7);	/*Give wrapper seperate background color to differ from image*/
 	border-radius: 10px;  /*Round edges of background */
 }
+.clearDiv:hover .clear{
+	display: block;
+}
+.clearDiv:hover .sugclear{
+	display: block;
+}
+.clear, .sugclear{
+	display: none;
+	position: absolute;

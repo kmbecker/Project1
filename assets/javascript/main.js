@@ -1,33 +1,3 @@
-//  ---------------- Initialize Seth Favorites Firebase ---------------!!!!!
-
-var url ="https://movieproject-fc07e.firebaseio.com";
-var dataRef = new Firebase(url);
-var getKey;
-
-//  ---------------- Firebase test Suggestions ---------------!!!!!
-
-var url2 ="https://test-f0675.firebaseio.com";
-var dataRef2 = new Firebase(url2);
-var getKey2;
-  
-//  ---------------- Initialize Kyle Firebase ---------------!!!!!
-
-var urlKyle ="https://kyle-6eb48.firebaseio.com";
-var dataRefKyle = new Firebase(urlKyle);
-var getKeyKyle;
-
-//  ---------------- Initialize Cole Firebase ---------------!!!!!
-
-var urlCole ="https://cole-d1c96.firebaseio.com";
-var dataRefCole = new Firebase(urlCole);
-var getKeyCole;
-
-//  ---------------- Initialize Guest Firebase ---------------!!!!!
-
-var urlGuest ="https://guest-e3750.firebaseio.com";
-var dataRefGuest = new Firebase(urlGuest);
-var getKeyCole;
-
 
 //  ---------------- Creat Global Variables ---------------!!!!!
       var movie;
@@ -51,43 +21,7 @@ var getKeyCole;
 $("#item1").change(function(){
   users();
   renderButtons();
-  console.log("movin on up")
-})
-
-//  ---------------- Testing USER ACCOUNTS BELOW HERE ---------------!!!!! 
-
-  function users(){
-    // var userName = $("#user").val();
-    // console.log(userName)
-
-    var s = document.getElementById('item1');
-    var item1 = s.options[s.selectedIndex].value;
-    if (item1 == 1) {
-      dataRef = dataRefCole;
-
-      console.log("Cole")
-    }
-    else if (item1 == 2) {
-      dataRef = dataRefKyle;
-      console.log("Kyle")
-    }
-    else if (item1 == 3) {
-      dataRef = new Firebase(url);
-      console.log("Seth")
-    }
-    else {
-      dataRef = dataRefGuest;
-      console.log("Error")
-    }
-};//end users
-
-
-
-
-
-
-
-//  ---------------- TESTING ABOVE ---------------!!!!! 
+});
 
 //  ---------------- This function handles events when search button is clicked ---------------!!!!!
 
@@ -96,11 +30,11 @@ $("#item1").change(function(){
           users();
           var error = $("#searchInput").val();
           if (error === "") {
-            console.log("yay")
             $("#error").css("display","block")
             $("#error").html("Please enter a Movie or TV show before pressing search button")
           } else {
             $("#error").css("display","none")
+            counter = 0;
             submitClick();
             
           }
@@ -231,45 +165,10 @@ $("#item1").change(function(){
 
                 };
                 counter=counter+3;
+                console.log(counter)
         });
       };//end of displayGifs
-            //  ---------------- Render Suggestion Buttons ---------------!!!!!
-
-      function renderSugButtons() {
-
-           $("#suglocDiv").empty();
-              dataRef2.on("child_added", function(childSnapShot){
-              var sug = childSnapShot.val().favoritesFIRE;
-              $("#suglocDiv").append("<div class = 'clearDiv' id = '" + childSnapShot.key() +"'><button data-name = '" +
-              sug + "' class = 'sugMovie btn btn-info'>" +
-              sug + "</button><br><div data-name = '" + sug + "' class = 'sugclear'>X</div</div")
-                 
-             });//end of child added
-      };//end of render
-
-
-          renderSugButtons();// initial render Suggestion call
-
-              //  ---------------- Render Buttons Function ---------------!!!!!
-
-      function renderButtons() {
-
-          $("#favoritesDiv").empty();
-            dataRef.on("child_added", function(childSnapShot){
-            var fav = childSnapShot.val().favoritesFIRE;
-
-          $("#favoritesDiv").append("<div class = 'clearDiv' id = '" + childSnapShot.key() +
-             "'><button data-name = '" +
-             fav + "' class = 'favMovie btn btn-info'>" +
-             fav + "</button><br><div data-name = '" + fav + "' class = 'clear'>X</div</div")
-               
-           });//end of child added
-      };//end of render
-
-     // Render buttons inital call
-      renderButtons();
-
-                                
+                           
                   //  ---------------- Click functions below ---------------!!!!!
 
        //  ---------------- Suggestion movies click ---------------!!!!!
@@ -277,6 +176,7 @@ $("#item1").change(function(){
         $('body').on('click', '.sugMovie', function() {
           movie = $(this).text();
           giphyName = movie;
+          counter = 0;
           displayGifs();
           displayMovieInfo();
         });//end of sug click function
@@ -286,51 +186,12 @@ $("#item1").change(function(){
         $('body').on('click', '.favMovie', function() {
           movie = $(this).text();
           giphyName = movie;
+          counter = 0;
           displayGifs();
           displayMovieInfo();
           $("#favbtnDiv").css("display" , "none")
         });//end of favorite click function
 
-
- //  ---------------- Add Suggestion Button click FIREBASE PUSH---------------!!!!!
-        $('body').on('click', '#sugbtn', function() {
-                  keyHolder2 = dataRef2.push({
-                  favoritesFIRE: movie,
-                  });//end of push
-
-              renderSugButtons()
-
-        })//end of sugbtn click function
-
-  //  ---------------- Add Favorite Button Click FIREBASE PUSH---------------!!!!!
-        $('body').on('click', '#favbtn', function() {
-                  users();
-                  keyHolder = dataRef.push({
-                  favoritesFIRE: movie,
-                  });//end of push
-        
-        renderButtons();
-        
-        });//end of favbtn
-        //  ---------------- Clear Suggestion  ---------------!!!!!
-                      
-        $('body').on('click', '.sugclear', function() {
-                
-                $(this).closest ('button').remove();
-                getKey2 = $(this).parent().attr('id');
-                dataRef2.child(getKey2).remove();
-                renderSugButtons();
-                
-        });//end Suggestion clear
-
-          //  ---------------- Clear Favorites ---------------!!!!!
-        $('body').on('click', '.clear', function() {
-               
-                $(this).closest ('button').remove();
-                getKey = $(this).parent().attr('id');
-                dataRef.child(getKey).remove();
-                renderButtons();
-           });// end favorite clear
          
         //  ---------------- Pause Gif Function ---------------!!!!!
           $('body').on('click', '.gif', function() {
@@ -351,26 +212,4 @@ $("#item1").change(function(){
             displayGifs();
           });//end of shuffle
 
-// -----------------------------------------------hover css features ---------!!!!!
- // $(document).on("mouseover", ".favMovie", function(){
- //        console.log(this)
- //          // $(this)children().css("display","block");
- //          $(this).css("color","yellow");
- //          // $('span').css("display", "block")
- //      });
-
- //      $(document).on("mouseout", ".favMovie", function(){
-        
- //          $(this).css("color","white");
- //      });
- //       $(document).on("mouseover", ".clear", function(){
-      
- //          $(this).css("color","yellow");
- //      });
- //       $(document).on("mouseout", ".clear", function(){
- //          // console.log(this)
- //          $(this).css("color","red");
- //      });  
-
-
-});//end of document ready     
+  });//document end
