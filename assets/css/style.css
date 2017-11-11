@@ -31,7 +31,7 @@ a:visted {
 
 /*Stylize fotter bar*/
 footer {
-	margin-top: 25px;
+	margin-top: 35px;
 	padding-bottom: 15px;
 	border-radius: 10px;
 	background: rgba(42,124,217,0.3);
@@ -84,7 +84,32 @@ select {
 	margin-bottom: 10px;
 }
 .clearDiv{
-	color: red;
+	color: white;
+}
+
+.clearDiv:hover .clear{
+	margin-left: 6px;
+	padding: 3px;
+	display: block;
+	background-color: red;
+	border-radius: 6px;
+}
+
+.clearDiv:hover .sugclear{
+	margin-left: 6px;
+	padding: 3px;
+	display: block;
+	background-color: red;
+	border-radius: 6px;
+}
+
+.clear, .sugclear{
+	margin-left: 6px;
+	padding: 3px;	
+	display: none;
+	position: absolute;
+	background-color: red;
+	border-radius: 6px;
 }
 
 .jumbotron {
@@ -94,12 +119,20 @@ select {
 	text-shadow: black 15px 15px 15px;
 }
 
+.favorites {
+	margin-top: 5px;
+}
+
 .favMovie, .sugMovie {
 	margin: 5px;
 }
 
 .search-bar {
 	color:black;
+}
+
+.suggestions {
+	margin-top: 15px;
 }
 
 #userSelection {
@@ -133,12 +166,3 @@ select {
 	background-color: rgba(0,0,0,0.7);	/*Give wrapper seperate background color to differ from image*/
 	border-radius: 10px;  /*Round edges of background */
 }
-.clearDiv:hover .clear{
-	display: block;
-}
-.clearDiv:hover .sugclear{
-	display: block;
-}
-.clear, .sugclear{
-	display: none;
-	position: absolute;
