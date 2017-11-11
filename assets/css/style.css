@@ -84,7 +84,7 @@ select {
 	margin-bottom: 10px;
 }
 .clearDiv{
-	color: red;
+	color: white;
 }
 
 .jumbotron {
@@ -133,12 +133,27 @@ select {
 	background-color: rgba(0,0,0,0.7);	/*Give wrapper seperate background color to differ from image*/
 	border-radius: 10px;  /*Round edges of background */
 }
+
 .clearDiv:hover .clear{
+	margin-left: 8px;
+	padding: 1px;
 	display: block;
+	background-color: red;
+	border-radius: 6px;
 }
 .clearDiv:hover .sugclear{
+	margin-left: 8px;
+	padding: 1px;
 	display: block;
+	background-color: red;
+	border-radius: 6px;
 }
+
 .clear, .sugclear{
+	margin-left: 8px;
+	padding: 1px;	
 	display: none;
 	position: absolute;
+	background-color: red;
+	border-radius: 6px;
+}
