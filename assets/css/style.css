@@ -88,28 +88,30 @@ select {
 }
 
 .clearDiv:hover .clear{
-	margin-left: 6px;
-	padding: 3px;
+	margin-left: -1px;
+	margin-top: -45px;
+	padding: 2px;
 	display: block;
 	background-color: red;
-	border-radius: 6px;
+	border-radius: 40px;
 }
 
 .clearDiv:hover .sugclear{
-	margin-left: 6px;
-	padding: 3px;
+	margin-left: -1px;
+	margin-top: -45px;
+	padding: 2px;
 	display: block;
 	background-color: red;
-	border-radius: 6px;
+	border-radius: 40px;
 }
 
 .clear, .sugclear{
-	margin-left: 6px;
-	padding: 3px;	
+	margin-left: -1px;
+	padding-left: -45px;	
 	display: none;
 	position: absolute;
 	background-color: red;
-	border-radius: 6px;
+	border-radius: 40px;
 }
 
 .jumbotron {

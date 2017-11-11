@@ -57,7 +57,7 @@ var dataRefGuest = new Firebase(urlGuest);
               var sug = childSnapShot.val().favoritesFIRE;
               $("#suglocDiv").append("<div class = 'clearDiv' id = '" + childSnapShot.key() +"'><button data-name = '" +
               sug + "' class = 'sugMovie btn btn-info'>" +
-              sug + "</button><br><div data-name = '" + sug + "' class = 'sugclear'>Delete X</div</div")
+              sug + "</button><br><div data-name = '" + sug + "' class = 'sugclear'>x</div</div")
                  
              });//end of child added
       };//end of render
@@ -76,7 +76,7 @@ var dataRefGuest = new Firebase(urlGuest);
           $("#favoritesDiv").append("<div class = 'clearDiv' id = '" + childSnapShot.key() +
              "'><button data-name = '" +
              fav + "' class = 'favMovie btn btn-info'>" +
-             fav + "</button><br><div data-name = '" + fav + "' class = 'clear'>Delete X</div</div")
+             fav + "</button><br><div data-name = '" + fav + "' class = 'clear'>x</div</div")
                
            });//end of child added
       };//end of render
